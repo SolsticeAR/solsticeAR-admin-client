@@ -1,5 +1,3 @@
-// import { saveObject } from "../utils";
-
 const axios = require("axios");
 
 // TODO: put this in an environment config file
@@ -86,7 +84,6 @@ export function listCampaigns(adminId) {
         }
       }
     }`).then(response => {
-    console.log(response);
     return {
       ok: true,
       campaigns: response.data.getAdminCampaigns.map(c => {
@@ -114,21 +111,6 @@ export function listCampaigns(adminId) {
   });
 }
 
-// POSTS S3 DATA URIS TO DB
-
-// export function saveFile(adminId, campaignId, file) {
-//   return saveObject(file).then(response => {
-//     if (!response.ok) return response;
-
-//     return serverImpl.addMediaToCampaign(
-//       adminId,
-//       campaignId,
-//       response.name,
-//       response.referenceKey
-//     );
-//   });
-// }
-
 export function createNewCampaign(adminId, name) {
   // CREATES A NEW CAMPAIGN
   return sendGqlRequest(
@@ -155,19 +137,6 @@ export function createNewCampaign(adminId, name) {
       name: response.response.data.addCampaign.name,
       id: response.response.data.addCampaign.id
     };
-  });
-}
-
-export function testMessage(campaignId) {
-  return sendGqlRequest(
-    `
-      mutation {
-        test(campaignID: ${campaignId})
-      }
-    `,
-    true
-  ).then(response => {
-    console.log(response);
   });
 }
 
@@ -221,32 +190,6 @@ export function login(email, password) {
     };
   });
 }
-
-//THIS FUNCTION/SIMILAR SHOULD GO IN THE LOGIN COMPONENT,
-// "setAdminName" was calling ^^^^ to query for login
-// and assigned the response to object "AuthData"
-// put in localStorage
-// vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-
-// handleSubmit() {
-//   let email = this.state.loginEmail;
-//   let password = this.state.loginPassword;
-//   login(email, password).then(response => {
-//     if (response.ok) {
-//       this.props.setAdminName(response);
-//       let authData = {
-//         token: response.token,
-//         name: response.name,
-//         email: response.email,
-//         id: response.id,
-//       };
-//       window.localStorage.setItem("authData", JSON.stringify(authData));
-//       this.setState({ redirect: true });
-//     } else {
-//       window.alert(response.error);
-//     }
-//   });
-// }
 
 export function logout() {
   // REVOKES AUTH TOKEN

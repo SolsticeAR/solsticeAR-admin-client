@@ -33,10 +33,6 @@ class ARexperience extends Component {
                 HERE
               </a>
             </p>
-            {/* <p>Share your AR Experience</p>
-            <a href="#" class="btn btn-primary btn-circle btn-lg">
-              <i class="fab fa-facebook-f"></i>
-            </a> */}
           </div>
         </div>
       </div>
