@@ -50,7 +50,7 @@ class DashboardHome extends Component {
                     <li class="nav-item dropdown no-arrow">
                       <a
                         class="nav-link dropdown-toggle"
-                        href="#"
+                        href="#page-top"
                         id="userDropdown"
                         role="button"
                         data-toggle="dropdown"
@@ -66,7 +66,7 @@ class DashboardHome extends Component {
                     <li class="nav-item dropdown no-arrow">
                       <a
                         class="nav-link dropdown-toggle"
-                        href="#"
+                        href="#page-top"
                         id="userDropdown"
                         role="button"
                         data-toggle="dropdown"
@@ -142,17 +142,17 @@ class DashboardHome extends Component {
                             Put the experience URL{" "}
                             <a
                               target="_blank"
-                              rel="nofollow"
+                              rel="nofollow noopener noreferrer"
                               href="https://tinyurl.com/y8asa9cq"
                             >
                               HERE
                             </a>
                           </p>
                           <p>Share your AR Experience</p>
-                          <a href="#" class="btn btn-primary btn-circle btn-lg">
+                          <a href="#page-top" class="btn btn-primary btn-circle btn-lg">
                             <i class="fab fa-facebook-f"></i>
                           </a>
-                          <a href="#" class="btn btn-primary btn-circle btn-lg">
+                          <a href="#page-top" class="btn btn-primary btn-circle btn-lg">
                             <i class="fab fa-facebook-f"></i>
                           </a>
                         </div>
