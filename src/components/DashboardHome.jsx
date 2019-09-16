@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { fetchCampaignData } from "../actions";
+import { connect } from "react-redux";
 
 // styling
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,62 +12,72 @@ import ActiveExperience from "./dashboardCards/ActiveExperience";
 import ARexperience from "./dashboardCards/ARexperience";
 import UploadExperience from "./dashboardCards/UploadExperience";
 import ExperiencesTable from "./dashboardCards/ExperiencesTable";
+import CloudinaryUpload from "./CloudinaryUpload";
 
 class DashboardHome extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    this.props.fetchCampaignData(this.props.admin);
+  }
   render() {
     return (
-      <div class="DashboardHome">
+      <div className="DashboardHome">
         <div id="wrapper">
           <ul
-            class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+            className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
             id="accordionSidebar"
           >
             <a
-              class="sidebar-brand d-flex align-items-center justify-content-center"
+              className="sidebar-brand d-flex align-items-center justify-content-center"
               href="index.html"
             >
-              <div class="sidebar-brand-text mx-3">Solstice AR</div>
+              <div className="sidebar-brand-text mx-3">Solstice AR</div>
             </a>
-            <hr class="sidebar-divider my-0" />
-            <li class="nav-item active">
-              <a class="nav-link" href="#page-top">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+            <hr className="sidebar-divider my-0" />
+            <li className="nav-item active">
+              <a className="nav-link" href="#page-top">
+                <i className="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard Home</span>
               </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#page-top">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+            <li className="nav-item active">
+              <a className="nav-link" href="#page-top">
+                <i className="fas fa-fw fa-tachometer-alt"></i>
                 <span>Your AR Experiences</span>
               </a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#page-top">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+            <li className="nav-item active">
+              <a className="nav-link" href="#page-top">
+                <i className="fas fa-fw fa-tachometer-alt"></i>
                 <span>Add / Create New AR Experience</span>
               </a>
             </li>
+            <li className="nav-item active">
+              <CloudinaryUpload />
+            </li>
           </ul>
 
-          <div id="content-wrapper" class="d-flex flex-column">
+          <div id="content-wrapper" className="d-flex flex-column">
             {/* PAGE CONTENT */}
             <div id="content">
               {/* NAVBAR */}
-              <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item dropdown no-arrow">
+              <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item dropdown no-arrow">
                     <a
-                      class="nav-link dropdown-toggle"
+                      className="nav-link dropdown-toggle"
                       href="#page-top"
                       id="userDropdown"
                     >
                       User Name Here
                     </a>
                   </li>
-                  <div class="topbar-divider d-none d-sm-block"></div>
-                  <li class="nav-item dropdown no-arrow">
+                  <div className="topbar-divider d-none d-sm-block"></div>
+                  <li className="nav-item dropdown no-arrow">
                     <a
-                      class="nav-link dropdown-toggle"
+                      className="nav-link dropdown-toggle"
                       href="#page-top"
                       id="userDropdown"
                     >
@@ -75,34 +87,34 @@ class DashboardHome extends Component {
                 </ul>
               </nav>
               {/* CARDS */}
-              <div class="container-fluid">
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                  <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+              <div className="container-fluid">
+                <div className="d-sm-flex align-items-center justify-content-between mb-4">
+                  <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
                 </div>
-                <div class="row">
-                  <div class="col-xl-8 col-lg-7">
+                <div className="row">
+                  <div className="col-xl-8 col-lg-7">
                     <ViewCountGraph />
                   </div>
-                  <div class="col-xl-4 col-lg-5">
+                  <div className="col-xl-4 col-lg-5">
                     <ActiveExperience />
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-lg-6 mb-4">
+                {/* <div className="row">
+                  <div className="col-lg-6 mb-4">
                     <ARexperience />
                   </div>
-                  <div class="col-lg-6 mb-4">
+                  <div className="col-lg-6 mb-4">
                     <UploadExperience />
                   </div>
-                </div>
+                </div> */}
                 <ExperiencesTable />
               </div>
             </div>
 
             {/* FOOTER */}
-            <footer class="sticky-footer bg-white">
-              <div class="container my-auto">
-                <div class="copyright text-center my-auto">
+            <footer className="sticky-footer bg-white">
+              <div className="container my-auto">
+                <div className="copyright text-center my-auto">
                   <span>Solstice AR &copy; 2019</span>
                 </div>
               </div>
@@ -113,5 +125,21 @@ class DashboardHome extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    admin: state.reducer.adminData
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchCampaignData: admin => {
+      console.log(admin);
+      dispatch(fetchCampaignData(admin.id));
+    }
+  };
+};
 
-export default DashboardHome;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DashboardHome);

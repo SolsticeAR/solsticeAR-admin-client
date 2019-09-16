@@ -7,14 +7,16 @@ import "../styles/App.css";
 class Campaigns extends Component {
   render() {
     return (
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Your AR Experiences</h6>
+      <div className="card shadow mb-4">
+        <div className="card-header py-3">
+          <h6 className="m-0 font-weight-bold text-primary">
+            Your AR Experiences
+          </h6>
         </div>
-        <div class="card-body">
-          <div class="table-responsive">
+        <div className="card-body">
+          <div className="table-responsive">
             <table
-              class="table table-bordered"
+              className="table table-bordered"
               id="dataTable"
               width="100%"
               cellspacing="0"

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 // components
 import DashboardHome from "./DashboardHome";
+import CloudinaryUpload from "./CloudinaryUpload";
 
 class Dashboard extends Component {
   render() {

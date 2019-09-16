@@ -13,7 +13,7 @@ function timedPromise(ms, value) {
 
 export function getAuthTokenFromLS() {
   const authData = window.localStorage.getItem("authData");
-  return authData ? authData : null;
+  return authData ? JSON.parse(authData) : null;
 }
 
 export function storeTokenInLS(loginData) {
@@ -103,6 +103,7 @@ export function listCampaigns(adminId) {
           id
           name
           url
+          type
           views{
             date
             views
@@ -207,7 +208,6 @@ export function login(email, password) {
     includeAuthToken
   ).then(response => {
     console.log("SERVER RESPONSE (LOGIN)", response);
-    debugger;
     if (!response.ok) throw Error("Login failed.", response.error);
 
     let loginInfo = response.data.login;

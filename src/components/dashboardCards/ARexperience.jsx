@@ -10,15 +10,15 @@ import marker from "../../images/hiromarker.png";
 class ARexperience extends Component {
   render() {
     return (
-      <div class="ARexperience">
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">AR Experience</h6>
+      <div className="ARexperience">
+        <div className="card shadow mb-4">
+          <div className="card-header py-3">
+            <h6 className="m-0 font-weight-bold text-primary">AR Experience</h6>
           </div>
-          <div class="card-body">
-            <div class="text-center">
+          <div className="card-body">
+            <div className="text-center">
               <img
-                class="img-fluid px-3 px-sm-4 mt-3 mb-4"
+                className="img-fluid px-3 px-sm-4 mt-3 mb-4"
                 src={marker}
                 alt=""
               />

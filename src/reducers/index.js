@@ -3,7 +3,8 @@ import { connectRouter } from "connected-react-router";
 import {
   LOGIN_ADMIN,
   SET_ADMIN_DATA,
-  LOGIN_FAILED
+  LOGIN_FAILED,
+  SET_CAMPAIGN_DATA
 } from "../actions/constants";
 
 const initialState = {
@@ -33,6 +34,11 @@ function reducer(state = initialState, { type, data }) {
       return {
         ...state,
         verifiedUser: false
+      };
+    case SET_CAMPAIGN_DATA:
+      return {
+        ...state,
+        campaigns: { ...data.campaigns }
       };
     default:
       return state;
