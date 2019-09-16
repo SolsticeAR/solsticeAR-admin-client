@@ -25,11 +25,7 @@ class ARexperience extends Component {
             </div>
             <p>
               Put the experience URL{" "}
-              <a
-                target="_blank"
-                rel="nofollow"
-                href="https://tinyurl.com/y8asa9cq"
-              >
+              <a rel="nofollow" href="https://tinyurl.com/y8asa9cq">
                 HERE
               </a>
             </p>
