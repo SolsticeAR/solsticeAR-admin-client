@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 // components
 import Dashboard from "./Dashboard";
