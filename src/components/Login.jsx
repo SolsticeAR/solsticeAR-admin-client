@@ -7,7 +7,6 @@ import { loginAdmin, setAdminData } from "../actions";
 // styling
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/App.css";
-import { ETIME } from "constants";
 import { getAuthTokenFromLS } from "../utils";
 import { push } from "connected-react-router";
 
