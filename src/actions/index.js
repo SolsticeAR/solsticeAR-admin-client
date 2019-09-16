@@ -3,7 +3,9 @@ import {
   SET_ADMIN_DATA,
   LOGIN_FAILED,
   SET_CAMPAIGN_DATA,
-  FETCH_CAMPAIGN_DATA
+  FETCH_CAMPAIGN_DATA,
+  SET_ACTIVE_MEDIA,
+  TRY_SET_ACTIVE_MEDIA
 } from "./constants";
 
 export const loginAdmin = (email, password) => {
@@ -37,5 +39,18 @@ export const fetchCampaignData = adminId => {
   return {
     type: FETCH_CAMPAIGN_DATA,
     data: { adminId }
+  };
+};
+export const setActiveMedia = activeMediaId => {
+  console.log(activeMediaId);
+  return {
+    type: SET_ACTIVE_MEDIA,
+    data: { activeMediaId }
+  };
+};
+export const trySetActiveMedia = (campaignId, mediaId) => {
+  return {
+    type: TRY_SET_ACTIVE_MEDIA,
+    data: { campaignId, mediaId }
   };
 };

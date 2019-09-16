@@ -80,7 +80,7 @@ class Login extends Component {
                             />
                             <label
                               className="custom-control-label"
-                              for="customCheck"
+                              htmlFor="customCheck"
                             >
                               Remember Me
                             </label>

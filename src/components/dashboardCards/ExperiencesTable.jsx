@@ -5,12 +5,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/App.css";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
+import { trySetActiveMedia } from "../../actions";
 
 class ExperiencesTable extends Component {
   constructor(props) {
     super(props);
 
     console.log(this.props);
+  }
+  handleClick(index) {
+    this.props.setActiveMedia(this.props.campaigns[0].id, index + 1);
   }
   componentDidMount() {}
   render() {
@@ -28,7 +32,7 @@ class ExperiencesTable extends Component {
                 className="table table-bordered"
                 id="dataTable"
                 width="100%"
-                cellspacing="0"
+                cellSpacing="0"
               >
                 <thead>
                   <tr>
@@ -41,8 +45,8 @@ class ExperiencesTable extends Component {
                 </thead>
                 <tbody>
                   {this.props.campaigns.length !== 0 ? (
-                    this.props.campaigns[0].media.map(media => (
-                      <tr>
+                    this.props.campaigns[0].media.map((media, index) => (
+                      <tr key={index}>
                         <td>{media.name}</td>
                         <td>{media.type}</td>
                         <td>
@@ -63,7 +67,12 @@ class ExperiencesTable extends Component {
                         </td>
                         <td>
                           {" "}
-                          <Button variant="success">Active</Button>
+                          <Button
+                            variant="success"
+                            onClick={() => this.handleClick(index)}
+                          >
+                            Active
+                          </Button>
                         </td>
                       </tr>
                     ))
@@ -90,6 +99,14 @@ const mapStateToProps = state => {
   };
 };
 
-//const mapDispatchToProps = dispatch => {};
+const mapDispatchToProps = dispatch => {
+  return {
+    setActiveMedia: (campaignId, activeMediaId) =>
+      dispatch(trySetActiveMedia(campaignId, activeMediaId))
+  };
+};
 
-export default connect(mapStateToProps)(ExperiencesTable);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ExperiencesTable);

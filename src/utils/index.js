@@ -76,7 +76,7 @@ export function addMedia(adminId, campaignId, photoName, referenceKey) {
   });
 }
 
-export function setActive(adminId, campaignId, mediaId) {
+export function setActive(campaignId, mediaId) {
   // POSTS TO DB THE ACTIVE EXPERIENCE FOR THE CAMPAIGN
   return sendGqlRequest(
     `mutation { 

@@ -4,7 +4,8 @@ import {
   LOGIN_ADMIN,
   SET_ADMIN_DATA,
   LOGIN_FAILED,
-  SET_CAMPAIGN_DATA
+  SET_CAMPAIGN_DATA,
+  SET_ACTIVE_MEDIA
 } from "../actions/constants";
 
 const initialState = {
@@ -12,7 +13,7 @@ const initialState = {
   adminData: null,
   verifiedUser: false,
   currentCampaignId: null,
-  currentMediaId: null,
+  activeMediaId: null,
   newCampaignForm: false,
   campaigns: []
 };
@@ -39,6 +40,11 @@ function reducer(state = initialState, { type, data }) {
       return {
         ...state,
         campaigns: { ...data.campaigns }
+      };
+    case SET_ACTIVE_MEDIA:
+      return {
+        ...state,
+        campaigns: { ...state.campaigns, activeMediaId: data.activeMediaId }
       };
     default:
       return state;
