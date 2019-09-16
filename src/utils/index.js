@@ -3,15 +3,41 @@ const axios = require("axios");
 // TODO: put this in an environment config file
 const uri = "http://localhost:4000/api";
 
-let sendGqlRequest = function(query, includeAuthToken) {
+function timedPromise(ms, value) {
+  return new Promise((resolve, reject) => {
+    window.setTimeout(() => {
+      resolve(value);
+    }, ms);
+  });
+}
+
+export function getAuthTokenFromLS() {
+  const authData = window.localStorage.getItem("authData");
+  return authData ? authData : null;
+}
+
+export function storeTokenInLS(loginData) {
+  if (!loginData.token) throw Error("No token suplied. storeTokenInLS");
+  else {
+    let authData = {
+      token: loginData.token,
+      name: loginData.name,
+      email: loginData.email,
+      id: loginData.id
+    };
+    window.localStorage.setItem("authData", JSON.stringify(authData));
+  }
+}
+
+const sendGqlRequest = function(query, includeAuthToken) {
   // PASS IN QUERY AND WHETHER OR NOT IT NEEDS AUTH TOKEN
-  let headers = {
+  const headers = {
     "Content-Type": "application/json"
   };
   if (includeAuthToken) {
     let authData = window.localStorage.getItem("authData");
     authData = JSON.parse(authData);
-    headers["Authorization"] = "Bearer " + authData.token;
+    headers.Authorization = "Bearer " + authData.token;
   }
   return axios.post(uri, { query }, { headers }).then(response => {
     if (response.data.errors) {
@@ -164,6 +190,7 @@ export function signUp(name, email, password, industry) {
 }
 
 export function login(email, password) {
+  const includeAuthToken = false;
   // VERIFIES USER
   return sendGqlRequest(
     `
@@ -177,12 +204,14 @@ export function login(email, password) {
         }
       }
     }`,
-    false
+    includeAuthToken
   ).then(response => {
-    if (!response.ok) return response;
+    console.log("SERVER RESPONSE (LOGIN)", response);
+    debugger;
+    if (!response.ok) throw Error("Login failed.", response.error);
+
     let loginInfo = response.data.login;
     return {
-      ok: true,
       token: loginInfo.token,
       name: loginInfo.admin.name,
       id: loginInfo.admin.id,
