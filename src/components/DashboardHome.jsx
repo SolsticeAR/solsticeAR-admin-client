@@ -28,19 +28,19 @@ class DashboardHome extends Component {
             </a>
             <hr class="sidebar-divider my-0" />
             <li class="nav-item active">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#page-top">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard Home</span>
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#page-top">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Your AR Experiences</span>
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="#page-top">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Add / Create New AR Experience</span>
               </a>
@@ -56,7 +56,7 @@ class DashboardHome extends Component {
                   <li class="nav-item dropdown no-arrow">
                     <a
                       class="nav-link dropdown-toggle"
-                      href="#"
+                      href="#page-top"
                       id="userDropdown"
                     >
                       User Name Here
@@ -66,7 +66,7 @@ class DashboardHome extends Component {
                   <li class="nav-item dropdown no-arrow">
                     <a
                       class="nav-link dropdown-toggle"
-                      href="#"
+                      href="#page-top"
                       id="userDropdown"
                     >
                       Logout
