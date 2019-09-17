@@ -50,14 +50,14 @@ const sendGqlRequest = function(query, includeAuthToken) {
   });
 };
 
-export function addMedia(adminId, campaignId, photoName, referenceKey) {
+export function addMedia(name, url, type, campaignId) {
   // POSTS NEW IMAGES/MEDIA TO DB
   return sendGqlRequest(
     `mutation { 
     addMedia(media: { 
-      name: "${photoName}" 
-      url: "${referenceKey}"
-      type: "image"
+      name: "${name}" 
+      url: "${url}"
+      type: "${type}"
       campaignID: ${campaignId}
     } ){ 
     id
@@ -71,7 +71,7 @@ export function addMedia(adminId, campaignId, photoName, referenceKey) {
     if (!response.ok) return response;
     return {
       ok: true,
-      media: response.media
+      media: response.data.addMedia
     };
   });
 }
@@ -104,6 +104,7 @@ export function listCampaigns(adminId) {
           name
           url
           type
+          
           views{
             date
             views
@@ -117,7 +118,7 @@ export function listCampaigns(adminId) {
         return {
           id: c.id,
           name: c.name,
-          activeCreativeId: c.activeCreativeId || 0,
+          activeMediaId: c.activeCreativeId || 0,
           media: (c.media || []).map(m => {
             return {
               id: m.id,

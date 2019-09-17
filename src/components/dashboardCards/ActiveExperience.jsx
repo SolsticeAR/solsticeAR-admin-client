@@ -7,7 +7,14 @@ import "../../styles/App.css";
 //images
 import cclogo from "../../images/cclogo.jpeg";
 
+// sagas
+import { connect } from "react-redux";
+
 class ActiveExperience extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div className="ActiveExperience">
@@ -21,7 +28,7 @@ class ActiveExperience extends Component {
           <div className="text-center">
             <img
               className="img-fluid px-3 px-sm-4 mt-3 mb-4"
-              src={cclogo}
+              src={this.props.activeMediaUrl}
               alt=""
             />
           </div>
@@ -31,4 +38,11 @@ class ActiveExperience extends Component {
   }
 }
 
-export default ActiveExperience;
+const mapStateToProps = state => {
+  return {
+    campaigns: state.reducer.campaigns,
+    activeMediaUrl: state.reducer.activeMediaUrl
+  };
+};
+
+export default connect(mapStateToProps)(ActiveExperience);

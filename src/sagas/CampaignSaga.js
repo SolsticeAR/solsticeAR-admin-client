@@ -1,9 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { listCampaigns, setActive } from "../utils";
 import { setCampaignData, setActiveMedia } from "../actions/index";
-import { CardColumns } from "react-bootstrap";
-import { ArgumentOutOfRangeError } from "rxjs";
-import { groupBy } from "rxjs/internal/operators/groupBy";
 
 export function* campaignSaga({ type, data }) {
   try {

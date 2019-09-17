@@ -4,9 +4,21 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/App.css";
 
+import { connect } from "react-redux";
+import { createNewUser } from "../actions";
+
 // images
 
 class Register extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: "",
+      lastName: "",
+      email: "", //temporary text for form
+      password: "" //temporary text for form
+    };
+  }
   render() {
     return (
       <div className="container">
@@ -29,6 +41,9 @@ class Register extends Component {
                           className="form-control form-control-user"
                           id="exampleFirstName"
                           placeholder="First Name"
+                          onChange={e =>
+                            this.setState({ firstName: e.target.value })
+                          }
                         />
                       </div>
                       <div className="col-sm-6">
@@ -37,6 +52,9 @@ class Register extends Component {
                           className="form-control form-control-user"
                           id="exampleLastName"
                           placeholder="Last Name"
+                          onChange={e =>
+                            this.setState({ lastName: e.target.value })
+                          }
                         />
                       </div>
                     </div>
@@ -46,6 +64,7 @@ class Register extends Component {
                         className="form-control form-control-user"
                         id="exampleInputEmail"
                         placeholder="Email Address"
+                        onChange={e => this.setState({ email: e.target.value })}
                       />
                     </div>
                     <div className="form-group row">
@@ -55,6 +74,9 @@ class Register extends Component {
                           className="form-control form-control-user"
                           id="exampleInputPassword"
                           placeholder="Password"
+                          onChange={e =>
+                            this.setState({ password: e.target.value })
+                          }
                         />
                       </div>
                       <div className="col-sm-6">
@@ -69,6 +91,7 @@ class Register extends Component {
                     <a
                       href="login.html"
                       className="btn btn-primary btn-user btn-block"
+                      onClick={e => this.handleSubmit(e)}
                     >
                       Register Account
                     </a>
@@ -89,4 +112,15 @@ class Register extends Component {
   }
 }
 
-export default Register;
+const mapDispatchToProps = dispatch => {
+  return {
+    createNewUser: user => {
+      dispatch(createNewUser(user));
+    }
+  };
+};
+
+export default connect(
+  {},
+  mapDispatchToProps
+)(Register);

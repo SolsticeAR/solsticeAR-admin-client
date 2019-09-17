@@ -22,7 +22,6 @@ class Login extends Component {
 
   componentDidMount() {
     const authData = getAuthTokenFromLS();
-    console.log(authData);
     if (authData) this.props.redirectToDashboard(authData);
   }
 

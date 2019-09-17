@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/App.css";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
-import { trySetActiveMedia } from "../../actions";
+import { trySetActiveMedia, setActiveMediaUrl } from "../../actions";
 
 class ExperiencesTable extends Component {
   constructor(props) {
@@ -13,9 +13,13 @@ class ExperiencesTable extends Component {
 
     console.log(this.props);
   }
+
   handleClick(index) {
-    this.props.setActiveMedia(this.props.campaigns[0].id, index + 1);
+    const newActiveMedia = this.props.campaigns[0].media[index];
+    this.props.setActiveMedia(this.props.campaigns[0].id, newActiveMedia.id);
+    this.props.setActiveMediaUrl(newActiveMedia.url);
   }
+
   componentDidMount() {}
   render() {
     return (
@@ -51,9 +55,7 @@ class ExperiencesTable extends Component {
                         <td>{media.type}</td>
                         <td>
                           {media.views.length !== 0
-                            ? new Date(
-                                Number(media.views[0].date)
-                              ).toLocaleString()
+                            ? new Date(Number(media.createdAt)).toLocaleString()
                             : "--"}
                         </td>
                         <td>
@@ -93,6 +95,7 @@ class ExperiencesTable extends Component {
     );
   }
 }
+
 const mapStateToProps = state => {
   return {
     campaigns: state.reducer.campaigns
@@ -101,8 +104,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setActiveMedia: (campaignId, activeMediaId) =>
-      dispatch(trySetActiveMedia(campaignId, activeMediaId))
+    setActiveMedia: (campaignId, activeMediaId) => {
+      dispatch(trySetActiveMedia(campaignId, activeMediaId));
+    },
+    setActiveMediaUrl: url => {
+      dispatch(setActiveMediaUrl(url));
+    }
   };
 };
 
