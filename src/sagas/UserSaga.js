@@ -14,7 +14,7 @@ export function* addUserSaga({ type, data }) {
     );
 
     console.log("NEW USER BEING LOGGED IN", newUser);
-    yield put(loginAdmin(newUser.userId, data.password));
+    yield put(loginAdmin(data.email, data.password));
   } catch (e) {
     window.alert(e.message);
   }

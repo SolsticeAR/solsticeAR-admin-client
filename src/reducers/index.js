@@ -11,7 +11,7 @@ import {
 } from "../actions/constants";
 
 const initialState = {
-  isLogingIn: false,
+  isLoggingIn: false,
   adminData: null,
   verifiedUser: false,
   currentCampaignId: null,
