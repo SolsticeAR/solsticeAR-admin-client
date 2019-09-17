@@ -3,15 +3,20 @@ import { connectRouter } from "connected-react-router";
 import {
   LOGIN_ADMIN,
   SET_ADMIN_DATA,
-  LOGIN_FAILED
+  LOGIN_FAILED,
+  SET_CAMPAIGN_DATA,
+  SET_ACTIVE_MEDIA,
+  SET_ACTIVE_MEDIA_URL,
+  CREATE_NEW_MEDIA
 } from "../actions/constants";
 
 const initialState = {
-  isLogingIn: false,
+  isLoggingIn: false,
   adminData: null,
   verifiedUser: false,
   currentCampaignId: null,
-  currentMediaId: null,
+  activeMediaId: null,
+  activeMediaUrl: "",
   newCampaignForm: false,
   campaigns: []
 };
@@ -34,6 +39,32 @@ function reducer(state = initialState, { type, data }) {
         ...state,
         verifiedUser: false
       };
+    case SET_CAMPAIGN_DATA:
+      return {
+        ...state,
+        activeMediaId: data.campaigns[0].activeMediaId,
+        campaigns: { ...data.campaigns }
+      };
+    case SET_ACTIVE_MEDIA:
+      return {
+        ...state,
+        campaigns: {
+          ...state.campaigns,
+          activeMediaId: data.activeMediaId
+        },
+        activeMediaId: data.activeMediaId
+      };
+    case SET_ACTIVE_MEDIA_URL:
+      return {
+        ...state,
+        activeMediaUrl: data.activeMediaUrl
+      };
+    case CREATE_NEW_MEDIA:
+      const newMedia = { ...data };
+      const newState = { ...state };
+      newState.campaigns[0].media.push(newMedia);
+      return newState;
+
     default:
       return state;
   }

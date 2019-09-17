@@ -8,7 +8,7 @@ export function* loginSaga({ type, data }) {
     const loginApiResponse = yield call(login, data.email, data.password);
     //1) store login info in local storage
     storeTokenInLS(loginApiResponse);
-    //2) Dispatch setAdminData
+    //2) store admin info in state
     yield put(setAdminData(loginApiResponse));
     //3) Route user to Dashboard
     yield put(push("/dashboard"));

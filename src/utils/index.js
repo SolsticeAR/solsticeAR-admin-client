@@ -13,7 +13,7 @@ function timedPromise(ms, value) {
 
 export function getAuthTokenFromLS() {
   const authData = window.localStorage.getItem("authData");
-  return authData ? authData : null;
+  return authData ? JSON.parse(authData) : null;
 }
 
 export function storeTokenInLS(loginData) {
@@ -50,14 +50,14 @@ const sendGqlRequest = function(query, includeAuthToken) {
   });
 };
 
-export function addMedia(adminId, campaignId, photoName, referenceKey) {
+export function addMedia(name, url, type, campaignId) {
   // POSTS NEW IMAGES/MEDIA TO DB
   return sendGqlRequest(
     `mutation { 
     addMedia(media: { 
-      name: "${photoName}" 
-      url: "${referenceKey}"
-      type: "image"
+      name: "${name}" 
+      url: "${url}"
+      type: "${type}"
       campaignID: ${campaignId}
     } ){ 
     id
@@ -71,12 +71,12 @@ export function addMedia(adminId, campaignId, photoName, referenceKey) {
     if (!response.ok) return response;
     return {
       ok: true,
-      media: response.media
+      media: response.data.addMedia
     };
   });
 }
 
-export function setActive(adminId, campaignId, mediaId) {
+export function setActive(campaignId, mediaId) {
   // POSTS TO DB THE ACTIVE EXPERIENCE FOR THE CAMPAIGN
   return sendGqlRequest(
     `mutation { 
@@ -103,6 +103,8 @@ export function listCampaigns(adminId) {
           id
           name
           url
+          type
+          
           views{
             date
             views
@@ -116,7 +118,7 @@ export function listCampaigns(adminId) {
         return {
           id: c.id,
           name: c.name,
-          activeCreativeId: c.activeCreativeId || 0,
+          activeMediaId: c.activeCreativeId || 0,
           media: (c.media || []).map(m => {
             return {
               id: m.id,
@@ -207,7 +209,6 @@ export function login(email, password) {
     includeAuthToken
   ).then(response => {
     console.log("SERVER RESPONSE (LOGIN)", response);
-    debugger;
     if (!response.ok) throw Error("Login failed.", response.error);
 
     let loginInfo = response.data.login;
