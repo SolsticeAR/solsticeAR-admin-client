@@ -41,23 +41,14 @@ class CloudinaryUpload extends Component {
   render() {
     return (
       <div className="app">
-        <li className="nav-item active">
-          <a
-            className="nav-link"
-            href="#page-top"
-            onClick={() => this.openWidget(this.widget)}
-          >
-            <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>Upload New File</span>
-          </a>
-        </li>
-        {/* <button
-          id="upload_widget"
-          className="cloudinary-button"
-          onClick={() => this.openWidget(widget)}
+        <a
+          className="nav-link"
+          href="#page-top"
+          onClick={() => this.openWidget(this.widget)}
         >
-          Upload files
-        </button> */}
+          <i className="fas fa-fw fa-tachometer-alt"></i>
+          <span>Upload New File</span>
+        </a>
       </div>
     );
   }

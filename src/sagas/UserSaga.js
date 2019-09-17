@@ -4,7 +4,6 @@ import { loginAdmin } from "../actions";
 
 export function* addUserSaga({ type, data }) {
   try {
-    console.log("User:", data);
     const newUser = yield call(
       signUp,
       data.name,
@@ -12,9 +11,12 @@ export function* addUserSaga({ type, data }) {
       data.password,
       data.industry
     );
-
-    console.log("NEW USER BEING LOGGED IN", newUser);
-    yield put(loginAdmin(data.email, data.password));
+    if (newUser.ok) {
+      console.log("NEW USER BEING LOGGED IN", data);
+      yield put(loginAdmin(data.email, data.password));
+    } else {
+      throw Error(newUser);
+    }
   } catch (e) {
     window.alert(e.message);
   }
