@@ -13,7 +13,7 @@ export function* addMediaSaga({ type, data }) {
       data.type,
       data.campaignId
     ));
-    newMedia.views = [];
+    newMedia.media.views = []; // Add views empty array so media can be checked
     yield put(setNewMedia(newMedia));
   } catch (e) {
     //TODO: Find out how to make the upload widget not try to upload twice...

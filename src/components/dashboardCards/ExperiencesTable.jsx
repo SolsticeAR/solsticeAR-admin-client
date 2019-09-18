@@ -12,10 +12,6 @@ import {
 } from "../../actions";
 
 class ExperiencesTable extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   handleClick(index) {
     const newActiveMedia = this.props.campaigns[0].media[index];
