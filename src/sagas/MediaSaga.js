@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { addMedia } from "../utils";
-import { setNewMedia } from "../actions/index";
+import { setNewMedia } from "../actions";
 
 export function* addMediaSaga({ type, data }) {
   try {
