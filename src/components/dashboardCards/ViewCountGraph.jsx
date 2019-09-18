@@ -21,25 +21,17 @@ class ViewCountGraph extends Component {
     super(props);
   }
 
-  render() {
-    const data = [
-      {
-        name: "Page A",
-        uv: 4000
-      },
-      {
-        name: "Page B",
-        uv: 3000
-      },
-      {
-        name: "Page C",
-        uv: 2000
-      },
-      {
-        name: "Page D",
-        uv: 2780
-      }
-    ];
+  displayNoActiveMediaCard() {
+    return <h1>No active media selected</h1>;
+  }
+
+  displayGraph() {
+    const data = this.props.activeMedia.views.map(view => {
+      return {
+        name: new Date(view.date).toDateString(),
+        uv: view.views
+      };
+    });
 
     return (
       <div className="ViewCountGraph">
@@ -78,23 +70,17 @@ class ViewCountGraph extends Component {
       </div>
     );
   }
+
+  render() {
+    if (!this.props.activeMedia) return this.displayNoActiveMediaCard();
+    return this.displayGraph();
+  }
 }
 
 const mapStateToProps = state => {
   return {
-    campaigns: state.reducer.campaigns
+    activeMedia: state.reducer.activeMediaObj
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setActiveMediaUrl: url => {
-      dispatch(setActiveMediaUrl(url));
-    }
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ViewCountGraph);
+export default connect(mapStateToProps)(ViewCountGraph);
