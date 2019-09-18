@@ -9,6 +9,7 @@ import {
   SET_ACTIVE_MEDIA_URL,
   CREATE_NEW_MEDIA,
   CREATE_NEW_USER,
+  SET_ACTIVE_MEDIA_OBJ,
   SET_NEW_MEDIA
 } from "./constants";
 
@@ -85,5 +86,12 @@ export const createNewUser = userData => {
   return {
     type: CREATE_NEW_USER,
     data: { ...userData }
+  };
+};
+
+export const setActiveMediaObj = mediaObj => {
+  return {
+    type: SET_ACTIVE_MEDIA_OBJ,
+    data: { ...mediaObj }
   };
 };
