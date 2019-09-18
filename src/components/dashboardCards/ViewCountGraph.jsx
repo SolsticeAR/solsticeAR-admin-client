@@ -22,7 +22,7 @@ class ViewCountGraph extends Component {
   }
 
   displayNoActiveMediaCard() {
-    return <h1>No active media selected</h1>;
+    return <h2>No active media selected</h2>;
   }
 
   displayGraph() {
@@ -34,6 +34,30 @@ class ViewCountGraph extends Component {
     });
 
     return (
+      <div className="card-body">
+        <AreaChart
+          width={700}
+          height={300}
+          data={data}
+          margin={{
+            top: 10,
+            right: 30,
+            left: 0,
+            bottom: 0
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+        </AreaChart>
+      </div>
+    );
+  }
+
+  render() {
+    return (
       <div className="ViewCountGraph">
         <div className="card shadow mb-4">
           <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -41,39 +65,12 @@ class ViewCountGraph extends Component {
               AR Experience View Count
             </h6>
           </div>
-
-          <div className="card-body">
-            <AreaChart
-              width={700}
-              height={300}
-              data={data}
-              margin={{
-                top: 10,
-                right: 30,
-                left: 0,
-                bottom: 0
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Area
-                type="monotone"
-                dataKey="uv"
-                stroke="#8884d8"
-                fill="#8884d8"
-              />
-            </AreaChart>
-          </div>
+          {!this.props.activeMedia
+            ? this.displayNoActiveMediaCard()
+            : this.displayGraph()}
         </div>
       </div>
     );
-  }
-
-  render() {
-    if (!this.props.activeMedia) return this.displayNoActiveMediaCard();
-    return this.displayGraph();
   }
 }
 
