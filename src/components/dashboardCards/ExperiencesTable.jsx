@@ -70,7 +70,7 @@ class ExperiencesTable extends Component {
                                   views: accumulator.views + currentValue.views
                                 })
                               ).views
-                            : "--"}
+                            : "0"}
                         </td>
                         <td>
                           {" "}
