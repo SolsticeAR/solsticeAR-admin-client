@@ -11,7 +11,6 @@ class ExperiencesTable extends Component {
   constructor(props) {
     super(props);
 
-    console.log(this.props);
   }
 
   handleClick(index) {
@@ -20,7 +19,6 @@ class ExperiencesTable extends Component {
     this.props.setActiveMediaUrl(newActiveMedia.url);
   }
 
-  componentDidMount() {}
   render() {
     return (
       <div className="ExperiencesTable">
@@ -48,20 +46,20 @@ class ExperiencesTable extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.props.campaigns.length !== 0 ? (
+                  {this.props.campaigns.length !== 0 && this.props.campaigns[0].media.length !== 0? (
                     this.props.campaigns[0].media.map((media, index) => (
                       <tr key={index}>
                         <td>{media.name}</td>
                         <td>{media.type}</td>
                         <td>
-                          {media.views.length !== 0
+                          {media.views && media.views.length !== 0
                             ? new Date(
                                 Number(media.views[0].date)
                               ).toLocaleString()
                             : "--"}
                         </td>
                         <td>
-                          {media.views.length !== 0
+                          {media.views && media.views.length !== 0
                             ? media.views.reduce(
                                 (accumulator, currentValue) => ({
                                   views: accumulator.views + currentValue.views

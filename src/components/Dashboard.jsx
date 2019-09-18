@@ -31,6 +31,12 @@ class Dashboard extends Component {
       ].url;
     }
   }
+  getMedia() {
+    if (this.props.campaigns.length) {
+      return this.props.campaigns[0].media;
+    }
+  }
+  
 
   render() {
     if (!this.props.campaigns[0])
@@ -109,8 +115,8 @@ class Dashboard extends Component {
                     <div className="col-xl-4 col-lg-5">
                       <ActiveExperience />
                     </div>
-                  </div>
-                  <ExperiencesTable />
+                  </div>                  
+                    <ExperiencesTable />
                 </div>
               </div>
 
