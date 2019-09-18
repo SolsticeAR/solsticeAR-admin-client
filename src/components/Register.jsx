@@ -19,6 +19,14 @@ class Register extends Component {
       password: "" //temporary text for form
     };
   }
+  handleSubmit(e) {
+    e.preventDefault();
+    let name = `${this.state.firstName} ${this.state.lastName}`;
+    let password = this.state.password;
+    let email = this.state.email;
+    let industry = this.state.industry;
+    this.props.createNewUser({ name, email, industry, password });
+  }
   render() {
     return (
       <div className="container">
@@ -58,14 +66,29 @@ class Register extends Component {
                         />
                       </div>
                     </div>
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        className="form-control form-control-user"
-                        id="exampleInputEmail"
-                        placeholder="Email Address"
-                        onChange={e => this.setState({ email: e.target.value })}
-                      />
+                    <div className="form-group row">
+                      <div className="col-sm-6 mb-3 mb-sm-0">
+                        <input
+                          type="email"
+                          className="form-control form-control-user"
+                          id="exampleInputEmail"
+                          placeholder="Email Address"
+                          onChange={e =>
+                            this.setState({ email: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div className="col-sm-6">
+                        <input
+                          type="text"
+                          className="form-control form-control-user"
+                          id="exampleIndustry"
+                          placeholder="Industry"
+                          onChange={e =>
+                            this.setState({ industry: e.target.value })
+                          }
+                        />
+                      </div>
                     </div>
                     <div className="form-group row">
                       <div className="col-sm-6 mb-3 mb-sm-0">
@@ -121,6 +144,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  {},
+  null,
   mapDispatchToProps
 )(Register);

@@ -4,17 +4,10 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/App.css";
 
-//images
-import cclogo from "../../images/cclogo.jpeg";
-
 // sagas
 import { connect } from "react-redux";
 
 class ActiveExperience extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="ActiveExperience">
