@@ -7,6 +7,7 @@ import {
   SET_CAMPAIGN_DATA,
   SET_ACTIVE_MEDIA,
   SET_ACTIVE_MEDIA_URL,
+  SET_ACTIVE_MEDIA_OBJ,
   SET_NEW_MEDIA
 } from "../actions/constants";
 
@@ -14,6 +15,7 @@ const initialState = {
   adminData: null,
   activeMediaId: null,
   activeMediaUrl: "",
+  activeMediaObj: null,
   campaigns: []
 };
 
@@ -51,6 +53,11 @@ function reducer(state = initialState, { type, data }) {
       return {
         ...state,
         activeMediaUrl: data.activeMediaUrl
+      };
+    case SET_ACTIVE_MEDIA_OBJ:
+      return {
+        ...state,
+        activeMediaObj: { ...data }
       };
     case SET_NEW_MEDIA:
       const newMedia = { ...data };
