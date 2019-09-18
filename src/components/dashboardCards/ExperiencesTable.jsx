@@ -14,10 +14,21 @@ class ExperiencesTable extends Component {
     console.log(this.props);
   }
 
+  clickedStyleChange(index){
+    const selectedButton = document.querySelector(`#b${index}`)
+    if(document.querySelector('.gray-selected') !== null){
+      const previousSelectedButton = document.querySelector('.gray-selected')
+      previousSelectedButton.classList.remove('gray-selected')
+      previousSelectedButton.classList.add('btn', 'btn-success')
+    }
+    selectedButton.classList.remove('btn', 'btn-success')
+    selectedButton.classList.add('gray-selected')
+  }
   handleClick(index) {
     const newActiveMedia = this.props.campaigns[0].media[index];
     this.props.setActiveMedia(this.props.campaigns[0].id, newActiveMedia.id);
     this.props.setActiveMediaUrl(newActiveMedia.url);
+    this.clickedStyleChange(index)
   }
 
   componentDidMount() {}
@@ -73,6 +84,7 @@ class ExperiencesTable extends Component {
                           {" "}
                           <Button
                             variant="success"
+                            id={`b${index}`}
                             onClick={() => this.handleClick(index)}
                           >
                             Active
