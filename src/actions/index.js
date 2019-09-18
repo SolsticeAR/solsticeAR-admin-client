@@ -8,7 +8,9 @@ import {
   TRY_SET_ACTIVE_MEDIA,
   SET_ACTIVE_MEDIA_URL,
   CREATE_NEW_MEDIA,
-  CREATE_NEW_USER
+  CREATE_NEW_USER,
+  SET_ACTIVE_MEDIA_OBJ,
+  SET_NEW_MEDIA
 } from "./constants";
 
 export const loginAdmin = (email, password) => {
@@ -73,10 +75,23 @@ export const createNewMedia = mediaData => {
     data: { ...mediaData }
   };
 };
+export const setNewMedia = mediaData => {
+  return {
+    type: SET_NEW_MEDIA,
+    data: { ...mediaData }
+  };
+};
 
 export const createNewUser = userData => {
   return {
     type: CREATE_NEW_USER,
     data: { ...userData }
+  };
+};
+
+export const setActiveMediaObj = mediaObj => {
+  return {
+    type: SET_ACTIVE_MEDIA_OBJ,
+    data: { ...mediaObj }
   };
 };

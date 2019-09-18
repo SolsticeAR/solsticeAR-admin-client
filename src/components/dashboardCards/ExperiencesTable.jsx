@@ -5,7 +5,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/App.css";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
-import { trySetActiveMedia, setActiveMediaUrl } from "../../actions";
+import {
+  trySetActiveMedia,
+  setActiveMediaUrl,
+  setActiveMediaObj
+} from "../../actions";
 
 class ExperiencesTable extends Component {
   constructor(props) {
@@ -29,6 +33,7 @@ class ExperiencesTable extends Component {
     this.props.setActiveMedia(this.props.campaigns[0].id, newActiveMedia.id);
     this.props.setActiveMediaUrl(newActiveMedia.url);
     this.clickedStyleChange(index)
+    this.props.setActiveMediaObj(newActiveMedia);
   }
 
   componentDidMount() {}
@@ -78,7 +83,7 @@ class ExperiencesTable extends Component {
                                   views: accumulator.views + currentValue.views
                                 })
                               ).views
-                            : "--"}
+                            : "0"}
                         </td>
                         <td>
                           {" "}
@@ -123,6 +128,10 @@ const mapDispatchToProps = dispatch => {
     },
     setActiveMediaUrl: url => {
       dispatch(setActiveMediaUrl(url));
+    },
+    setActiveMediaObj: media => {
+      console.log("IN EXPERIENCES TABLE:", media);
+      dispatch(setActiveMediaObj(media));
     }
   };
 };

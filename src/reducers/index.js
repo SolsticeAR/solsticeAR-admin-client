@@ -7,17 +7,15 @@ import {
   SET_CAMPAIGN_DATA,
   SET_ACTIVE_MEDIA,
   SET_ACTIVE_MEDIA_URL,
-  CREATE_NEW_MEDIA
+  SET_ACTIVE_MEDIA_OBJ,
+  SET_NEW_MEDIA
 } from "../actions/constants";
 
 const initialState = {
-  isLoggingIn: false,
   adminData: null,
-  verifiedUser: false,
-  currentCampaignId: null,
   activeMediaId: null,
   activeMediaUrl: "",
-  newCampaignForm: false,
+  activeMediaObj: null,
   campaigns: []
 };
 
@@ -25,19 +23,16 @@ function reducer(state = initialState, { type, data }) {
   switch (type) {
     case LOGIN_ADMIN:
       return {
-        ...state,
-        isLoggingIn: true
+        ...state
       };
     case SET_ADMIN_DATA:
       return {
         ...state,
-        verifiedUser: true,
         adminData: { name: data.name, id: data.id, email: data.email }
       };
     case LOGIN_FAILED:
       return {
-        ...state,
-        verifiedUser: false
+        ...state
       };
     case SET_CAMPAIGN_DATA:
       return {
@@ -59,7 +54,12 @@ function reducer(state = initialState, { type, data }) {
         ...state,
         activeMediaUrl: data.activeMediaUrl
       };
-    case CREATE_NEW_MEDIA:
+    case SET_ACTIVE_MEDIA_OBJ:
+      return {
+        ...state,
+        activeMediaObj: { ...data }
+      };
+    case SET_NEW_MEDIA:
       const newMedia = { ...data };
       const newState = { ...state };
       newState.campaigns[0].media.push(newMedia);
