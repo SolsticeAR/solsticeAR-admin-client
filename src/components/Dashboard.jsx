@@ -57,7 +57,7 @@ class Dashboard extends Component {
                 </a>
               </li>
               <li className="nav-item active">
-                <a className="nav-link" href="#page-top">
+                <a className="nav-link" href="#experiences-table">
                   <i className="fas fa-fw fa-tachometer-alt"></i>
                   <span>Your AR Experiences</span>
                 </a>
