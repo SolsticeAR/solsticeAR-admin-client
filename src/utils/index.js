@@ -52,7 +52,6 @@ const sendGqlRequest = function(query, includeAuthToken) {
 
 export function addMedia(name, url, type, campaignId) {
   // POSTS NEW IMAGES/MEDIA TO DB
-  console.log("TEST:",name, type, url, campaignId);
   return sendGqlRequest(
     `mutation { 
     addMedia(media: { 
