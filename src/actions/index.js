@@ -10,6 +10,7 @@ import {
   CREATE_NEW_MEDIA,
   CREATE_NEW_USER,
   SET_ACTIVE_MEDIA_OBJ
+  SET_NEW_MEDIA
 } from "./constants";
 
 export const loginAdmin = (email, password) => {
@@ -71,6 +72,12 @@ export const trySetActiveMedia = (campaignId, mediaId) => {
 export const createNewMedia = mediaData => {
   return {
     type: CREATE_NEW_MEDIA,
+    data: { ...mediaData }
+  };
+};
+export const setNewMedia = mediaData => {
+  return {
+    type: SET_NEW_MEDIA,
     data: { ...mediaData }
   };
 };

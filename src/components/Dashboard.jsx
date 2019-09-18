@@ -11,6 +11,7 @@ import ViewCountGraph from "./dashboardCards/ViewCountGraph";
 import ActiveExperience from "./dashboardCards/ActiveExperience";
 import ExperiencesTable from "./dashboardCards/ExperiencesTable";
 import CloudinaryUpload from "./CloudinaryUpload";
+import TextUpload from "./TextUpload";
 
 //actions
 import { fetchCampaignData } from "../actions";
@@ -63,6 +64,9 @@ class Dashboard extends Component {
               </li>
               <li className="nav-item active">
                 <CloudinaryUpload />
+              </li>
+              <li className="nav-item active">
+                <TextUpload />
               </li>
             </ul>
 
