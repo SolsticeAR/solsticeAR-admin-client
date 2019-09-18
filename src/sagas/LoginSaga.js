@@ -1,7 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { login, storeTokenInLS } from "../utils";
 import { setAdminData, loginFailed } from "../actions/index";
-import { campaignSaga } from "./CampaignSaga";
 import { push } from "connected-react-router";
 
 export function* loginSaga({ type, data }) {

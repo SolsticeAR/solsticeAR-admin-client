@@ -55,7 +55,9 @@ class ExperiencesTable extends Component {
                         <td>{media.type}</td>
                         <td>
                           {media.views.length !== 0
-                            ? new Date(Number(media.createdAt)).toLocaleString()
+                            ? new Date(
+                                Number(media.views[0].date)
+                              ).toLocaleString()
                             : "--"}
                         </td>
                         <td>
