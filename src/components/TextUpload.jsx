@@ -41,11 +41,7 @@ class TextUpload extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    campaigns: state.reducer.campaigns
-  };
-};
+
 const mapDispatchToProps = dispatch => {
   return {
     createNewMedia: media => {
@@ -55,6 +51,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(TextUpload);

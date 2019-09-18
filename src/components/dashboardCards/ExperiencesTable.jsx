@@ -49,7 +49,7 @@ class ExperiencesTable extends Component {
                 </thead>
                 <tbody>
                   {this.props.campaigns.length !== 0 ? (
-                    this.props.campaigns[0].media.map((media, index) => (
+                    this.props.media.map((media, index) => (
                       <tr key={index}>
                         <td>{media.name}</td>
                         <td>{media.type}</td>
@@ -100,7 +100,8 @@ class ExperiencesTable extends Component {
 
 const mapStateToProps = state => {
   return {
-    campaigns: state.reducer.campaigns
+    campaigns: state.reducer.campaigns,
+    media: state.reducer.campaigns[0].media
   };
 };
 

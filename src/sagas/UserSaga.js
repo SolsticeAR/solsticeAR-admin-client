@@ -12,7 +12,6 @@ export function* addUserSaga({ type, data }) {
       data.industry
     );
     if (newUser.ok) {
-      console.log("NEW USER BEING LOGGED IN", data);
       yield put(loginAdmin(data.email, data.password));
     } else {
       throw Error(newUser);

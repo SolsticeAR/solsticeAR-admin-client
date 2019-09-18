@@ -12,7 +12,6 @@ export function* addMediaSaga({ type, data }) {
       data.campaignId
     )).media;
 
-    console.log("NEW MEDIA BEING DISPATCHED", newMedia);
     yield put(setNewMedia(newMedia));
   } catch (e) {
     //TODO: Find out how to make the upload widget not try to upload twice...
