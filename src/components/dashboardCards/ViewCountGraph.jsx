@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { trySetActiveMedia, setActiveMediaUrl } from "../../actions";
 import { connect } from "react-redux";
 
 // styling
@@ -17,10 +16,6 @@ import {
 } from "recharts";
 
 class ViewCountGraph extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   displayNoActiveMediaCard() {
     return <h2>No active media selected</h2>;
   }
