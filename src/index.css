@@ -12,10 +12,6 @@ code {
     monospace;
 }
 
-.green-active {
-  background-color:green;
-}
-
 .gray-selected {
   display: inline-block;
   font-weight: 400;
