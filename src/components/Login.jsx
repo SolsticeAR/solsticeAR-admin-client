@@ -95,7 +95,7 @@ class Login extends Component {
                       </form>
                       <hr />
                       <div className="text-center">
-                        <a className="small" href="register.html">
+                        <a className="small" href="" onClick={() => this.props.redirectToRegister()}>
                           Create an Account!
                         </a>
                       </div>
@@ -118,8 +118,11 @@ const mapDispatchToProps = dispatch => {
     },
     redirectToDashboard: adminData => {
       dispatch(setAdminData(adminData));
-      dispatch(push("/dashboard"));
-    }
+      dispatch(push("/"));
+    },
+    redirectToRegister: adminData => {
+      dispatch(push("/register"));
+    },
   };
 };
 

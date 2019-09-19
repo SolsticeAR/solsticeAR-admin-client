@@ -11,7 +11,7 @@ export function* loginSaga({ type, data }) {
     //2) store admin info in state
     yield put(setAdminData(loginApiResponse));
     //3) Route user to Dashboard
-    yield put(push("/dashboard"));
+    yield put(push("/"));
   } catch (e) {
     window.alert(e.message);
     yield put(loginFailed(e));
