@@ -5,7 +5,6 @@ import { setNewMedia } from "../actions/index";
 
 export function* addMediaSaga({ type, data }) {
   try {
-    console.log(data)
     const newMedia = (yield call(
       addMedia,
       data.name,

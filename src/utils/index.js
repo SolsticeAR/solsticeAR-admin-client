@@ -223,9 +223,8 @@ export function login(email, password) {
 
 export function logout() {
   // REVOKES AUTH TOKEN
-  return timedPromise(100).then(response => {
     if (window.localStorage.getItem("authData")) {
       window.localStorage.removeItem("authData");
     }
-  });
-}
+  };
+
