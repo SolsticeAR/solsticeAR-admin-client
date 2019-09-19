@@ -172,6 +172,17 @@ a:hover {
   text-decoration: underline;
 }
 
+.link-hover {
+  color: #4e73df;
+  text-decoration: none;
+  background-color: transparent;
+}
+.link-hover:hover {
+  cursor: pointer;
+  color: #224abe;
+  text-decoration: underline;
+}
+
 a:not([href]):not([tabindex]) {
   color: inherit;
   text-decoration: none;
