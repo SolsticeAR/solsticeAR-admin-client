@@ -7,6 +7,8 @@ import "../styles/App.css";
 import { connect } from "react-redux";
 import { createNewUser } from "../actions";
 
+import { push } from "connected-react-router";
+
 // images
 
 class Register extends Component {
@@ -26,6 +28,10 @@ class Register extends Component {
     let email = this.state.email;
     let industry = this.state.industry;
     this.props.createNewUser({ name, email, industry, password });
+  }
+
+  handleLogin(e) {
+    this.props.redirectToLogin();
   }
   render() {
     return (
@@ -121,9 +127,10 @@ class Register extends Component {
                   </form>
                   <hr />
                   <div className="text-center">
-                    <a className="small" href="login.html">
+                    <span className="small link-hover"
+                      onClick={() => this.props.redirectToLogin()}>
                       Already have an account? Login!
-                    </a>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -139,6 +146,9 @@ const mapDispatchToProps = dispatch => {
   return {
     createNewUser: user => {
       dispatch(createNewUser(user));
+    },
+    redirectToLogin: adminData => {
+      dispatch(push("/login"));
     }
   };
 };

@@ -15,6 +15,7 @@ import TextUpload from "./TextUpload";
 
 //actions
 import { fetchCampaignData } from "../actions";
+import { logout } from "../utils";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -30,6 +31,16 @@ class Dashboard extends Component {
         this.props.campaigns[0].activemediaId - 1
       ].url;
     }
+  }
+  getMedia() {
+    if (this.props.campaigns.length) {
+      return this.props.campaigns[0].media;
+    }
+  }
+  handleLogout(e){
+    e.preventDefault();
+    logout();
+    this.props.redirectToLogin();
   }
 
   render() {
@@ -51,13 +62,13 @@ class Dashboard extends Component {
               </div>
               <hr className="sidebar-divider my-0" />
               <li className="nav-item active">
-                <a className="nav-link" href="#page-top">
+                <a className="nav-link" href="#accordionSidebar">
                   <i className="fas fa-fw fa-tachometer-alt"></i>
                   <span>Dashboard Home</span>
                 </a>
               </li>
               <li className="nav-item active">
-                <a className="nav-link" href="#page-top">
+                <a className="nav-link" href="#experiences-table">
                   <i className="fas fa-fw fa-tachometer-alt"></i>
                   <span>Your AR Experiences</span>
                 </a>
@@ -87,13 +98,13 @@ class Dashboard extends Component {
                     </li>
                     <div className="topbar-divider d-none d-sm-block"></div>
                     <li className="nav-item dropdown no-arrow">
-                      <a
+                      <span
                         className="nav-link dropdown-toggle"
-                        href="#page-top"
                         id="userDropdown"
+                        onClick={(e)=>this.handleLogout(e)}
                       >
                         Logout
-                      </a>
+                      </span>
                     </li>
                   </ul>
                 </nav>
@@ -109,8 +120,8 @@ class Dashboard extends Component {
                     <div className="col-xl-4 col-lg-5">
                       <ActiveExperience />
                     </div>
-                  </div>
-                  <ExperiencesTable />
+                  </div>                  
+                    <ExperiencesTable />
                 </div>
               </div>
 

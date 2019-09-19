@@ -2,6 +2,7 @@ import { call, put } from "redux-saga/effects";
 import { addMedia } from "../utils";
 import { setNewMedia } from "../actions/index";
 
+
 export function* addMediaSaga({ type, data }) {
   try {
     const newMedia = (yield call(
@@ -10,8 +11,7 @@ export function* addMediaSaga({ type, data }) {
       data.url,
       data.type,
       data.campaignId
-    )).media;
-
+    )); // Add views empty array so media can be checke
     yield put(setNewMedia(newMedia));
   } catch (e) {
     //TODO: Find out how to make the upload widget not try to upload twice...
