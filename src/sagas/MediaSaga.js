@@ -5,15 +5,13 @@ import { setNewMedia } from "../actions/index";
 
 export function* addMediaSaga({ type, data }) {
   try {
-    console.log(data)
     const newMedia = (yield call(
       addMedia,
       data.name,
       data.url,
       data.type,
       data.campaignId
-    ));
-    newMedia.media.views = []; // Add views empty array so media can be checke
+    )); // Add views empty array so media can be checke
     yield put(setNewMedia(newMedia));
   } catch (e) {
     //TODO: Find out how to make the upload widget not try to upload twice...

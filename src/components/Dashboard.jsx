@@ -15,6 +15,7 @@ import TextUpload from "./TextUpload";
 
 //actions
 import { fetchCampaignData } from "../actions";
+import { logout } from "../utils";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -36,7 +37,11 @@ class Dashboard extends Component {
       return this.props.campaigns[0].media;
     }
   }
-  
+  handleLogout(e){
+    e.preventDefault();
+    logout();
+    this.props.redirectToLogin();
+  }
 
   render() {
     if (!this.props.campaigns[0])
@@ -93,13 +98,13 @@ class Dashboard extends Component {
                     </li>
                     <div className="topbar-divider d-none d-sm-block"></div>
                     <li className="nav-item dropdown no-arrow">
-                      <a
+                      <span
                         className="nav-link dropdown-toggle"
-                        href="#page-top"
                         id="userDropdown"
+                        onClick={(e)=>this.handleLogout(e)}
                       >
                         Logout
-                      </a>
+                      </span>
                     </li>
                   </ul>
                 </nav>

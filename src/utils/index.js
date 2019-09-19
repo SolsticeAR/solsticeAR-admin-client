@@ -3,13 +3,6 @@ const axios = require("axios");
 // TODO: put this in an environment config file
 const uri = "http://localhost:4000/api";
 
-function timedPromise(ms, value) {
-  return new Promise((resolve, reject) => {
-    window.setTimeout(() => {
-      resolve(value);
-    }, ms);
-  });
-}
 
 export function getAuthTokenFromLS() {
   const authData = window.localStorage.getItem("authData");
@@ -69,10 +62,12 @@ export function addMedia(name, url, type, campaignId) {
     true
   ).then(response => {
     if (!response.ok) return response;
-    return {
+    const serialize = {
       ok: true,
       media: response.data.addMedia
     };
+    serialize.media.views = [];
+    return serialize;
   });
 }
 
@@ -223,9 +218,8 @@ export function login(email, password) {
 
 export function logout() {
   // REVOKES AUTH TOKEN
-  return timedPromise(100).then(response => {
     if (window.localStorage.getItem("authData")) {
       window.localStorage.removeItem("authData");
     }
-  });
-}
+  };
+
