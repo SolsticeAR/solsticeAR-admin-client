@@ -7,7 +7,7 @@ import {
   SET_CAMPAIGN_DATA,
   SET_ACTIVE_MEDIA,
   SET_ACTIVE_MEDIA_URL,
-  CREATE_NEW_MEDIA
+  CREATE_NEW_MEDIA,
 } from "../actions/constants";
 
 const initialState = {
@@ -17,6 +17,7 @@ const initialState = {
   currentCampaignId: null,
   activeMediaId: null,
   activeMediaUrl: "",
+  activeMedia: {},
   newCampaignForm: false,
   campaigns: []
 };
@@ -59,12 +60,16 @@ function reducer(state = initialState, { type, data }) {
         ...state,
         activeMediaUrl: data.activeMediaUrl
       };
+    case SET_ACTIVE_MEDIA:
+      return {
+        ...state,
+        activeMedia: { ...data.activeMedia }
+      }
     case CREATE_NEW_MEDIA:
       const newMedia = { ...data };
       const newState = { ...state };
       newState.campaigns[0].media.push(newMedia);
       return newState;
-
     default:
       return state;
   }
