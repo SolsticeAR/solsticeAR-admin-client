@@ -62,10 +62,12 @@ export function addMedia(name, url, type, campaignId) {
     true
   ).then(response => {
     if (!response.ok) return response;
-    return {
+    const serialize = {
       ok: true,
       media: response.data.addMedia
     };
+    serialize.media.views = [];
+    return serialize;
   });
 }
 
