@@ -127,10 +127,10 @@ class Register extends Component {
                   </form>
                   <hr />
                   <div className="text-center">
-                    <a className="small" href=""
+                    <span className="small link-hover"
                       onClick={() => this.props.redirectToLogin()}>
                       Already have an account? Login!
-                    </a>
+                    </span>
                   </div>
                 </div>
               </div>
