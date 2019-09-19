@@ -63,7 +63,7 @@ export function addMedia(name, url, type, campaignId) {
     id
     type
     name
-    url  
+    url
     }
   }`,
     true
