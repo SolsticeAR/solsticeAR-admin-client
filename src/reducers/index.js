@@ -38,18 +38,15 @@ function reducer(state = initialState, { type, data }) {
       return {
         ...state,
         activeMediaId: data.campaigns[0].activeMediaId,
-        campaigns: data.campaigns.slice(0)
+        campaigns: [...data.campaigns]
       };
     case SET_ACTIVE_MEDIA:
-      { const newCampaigns = state.campaigns.slice(0); 
-        newCampaigns[0].activeMediaId = data.activeMediaId;
-         return {
+      {  
+        return {
         ...state,
-        campaigns: newCampaigns,
         activeMediaId: data.activeMediaId
       };
     }
-
     case SET_ACTIVE_MEDIA_URL:
       return {
         ...state,
@@ -61,24 +58,14 @@ function reducer(state = initialState, { type, data }) {
         activeMediaObj: { ...data }
       };
     case SET_NEW_MEDIA:
-      const newCampaigns = state.campaigns.map((campaign, index) => {
-            if (index === 0) {
-              campaign.media = campaign.media.concat(data.media);
-            }
-            return campaign;
-      });
-      return {
+      {
+        const newCampaigns = [...state.campaigns];
+        newCampaigns[0].media = newCampaigns[0].media.concat(data.media);
+        return {
           ...state,
-          campaigns: newCampaigns
-          
+          campaigns:newCampaigns
+        }
       }
-      
-        
-      // const newMedia = { ...data };
-      // const newState = { ...state };
-      // newState.campaigns[0].media.push(newMedia);
-      // return newState;
-
     default:
       return state;
   }
