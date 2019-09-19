@@ -2,6 +2,7 @@ import {
   LOGIN_ADMIN,
   SET_ADMIN_DATA,
   LOGIN_FAILED,
+  LOG_OUT,
   SET_CAMPAIGN_DATA,
   FETCH_CAMPAIGN_DATA,
   SET_ACTIVE_MEDIA,
@@ -33,6 +34,11 @@ export const loginFailed = error => {
     data: { message: error.message }
   };
 };
+export const logOut = () => {
+  return {
+    type: LOG_OUT
+  }
+}
 
 export const setCampaignData = ({ campaigns }) => {
   return {

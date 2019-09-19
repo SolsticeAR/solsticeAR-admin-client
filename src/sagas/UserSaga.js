@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import { signUp } from "../utils";
-import { loginAdmin } from "../actions";
+import { loginAdmin, fetchCampaignData } from "../actions";
 
 export function* addUserSaga({ type, data }) {
   try {
@@ -13,6 +13,9 @@ export function* addUserSaga({ type, data }) {
     );
     if (newUser.ok) {
       yield put(loginAdmin(data.email, data.password));
+      /* Users need empty campaigns */
+      const newEmptyCampaign = yield call(fetchCampaignData, newUser.userId); 
+      if(!newEmptyCampaign.ok) { throw Error("Error registering new campaign");}
     } else {
       throw Error(newUser);
     }

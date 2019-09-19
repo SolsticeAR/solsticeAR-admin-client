@@ -1,6 +1,7 @@
 export const LOGIN_ADMIN = "LOGIN_ADMIN";
 export const SET_ADMIN_DATA = "SET_ADMIN_DATA";
 export const LOGIN_FAILED = "LOGIN_FAILED";
+export const LOG_OUT = "LOG_OUT";
 export const SET_CAMPAIGN_DATA = "SET_CAMPAIGN_DATA";
 export const FETCH_CAMPAIGN_DATA = "FETCH_CAMPAIGN_DATA";
 export const SET_ACTIVE_MEDIA = "SET_ACTIVE_MEDIA";

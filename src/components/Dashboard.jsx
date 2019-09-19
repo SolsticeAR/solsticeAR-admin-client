@@ -14,7 +14,7 @@ import CloudinaryUpload from "./CloudinaryUpload";
 import TextUpload from "./TextUpload";
 
 //actions
-import { fetchCampaignData } from "../actions";
+import { fetchCampaignData, logOut } from "../actions";
 import { logout } from "../utils";
 
 class Dashboard extends Component {
@@ -44,8 +44,8 @@ class Dashboard extends Component {
   }
 
   render() {
-    if (!this.props.campaigns[0])
-      return <h1>Loading: {this.props.campaigns[0]}</h1>;
+    if ( !this.props.campaigns)
+      return <h1>Loading: Campaigns}</h1>;
     else
       return (
         <div className="Dashboard">
@@ -93,7 +93,7 @@ class Dashboard extends Component {
                         href="#page-top"
                         id="userDropdown"
                       >
-                        {this.props.admin.name}
+                        {this.props.admin?this.props.admin.name:""}
                       </a>
                     </li>
                     <div className="topbar-divider d-none d-sm-block"></div>
@@ -152,6 +152,7 @@ const mapDispatchToProps = dispatch => {
     },
     redirectToLogin: () => {
       dispatch(push("/login"));
+      dispatch(logOut());
     }
   };
 };
