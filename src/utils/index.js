@@ -3,13 +3,6 @@ const axios = require("axios");
 // TODO: put this in an environment config file
 const uri = "http://localhost:4000/api";
 
-function timedPromise(ms, value) {
-  return new Promise((resolve, reject) => {
-    window.setTimeout(() => {
-      resolve(value);
-    }, ms);
-  });
-}
 
 export function getAuthTokenFromLS() {
   const authData = window.localStorage.getItem("authData");
