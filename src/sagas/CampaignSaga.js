@@ -12,7 +12,7 @@ export function* campaignSaga({ type, data }) {
     let campaignApiResponse = yield call(listCampaigns, data.adminId);
     
     if (!campaignApiResponse.campaigns.length) {
-      debugger;
+      
       const createCampaignApiResponse = yield call(createNewCampaign, data.adminId, "Campaign 1");
       if (!createCampaignApiResponse.ok) {
         throw new Error(createCampaignApiResponse);
@@ -26,7 +26,6 @@ export function* campaignSaga({ type, data }) {
     const activeMedia = campaignApiResponse.campaigns[0].media.find(
       media => media.id === activeMediaId
     );
-    yield put(setActiveMedia(activeMediaId));
     const activeCreativeUrl = activeMedia.url;
     yield put(setActiveMediaUrl(activeCreativeUrl));
     yield put(setActiveMediaObj(activeMedia));
