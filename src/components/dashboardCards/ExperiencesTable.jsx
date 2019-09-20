@@ -72,6 +72,7 @@ class ExperiencesTable extends Component {
                           {" "}
                           <Button
                             variant="success"
+                            id ={this.props.activeMediaId === media.id ? `b${media.id}` : 'green-selected'}
                             onClick={() => this.handleClick(index)}
                           >
                             Active
