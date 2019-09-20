@@ -4,6 +4,7 @@ import {
   LOGIN_ADMIN,
   SET_ADMIN_DATA,
   LOGIN_FAILED,
+  LOG_OUT,
   SET_CAMPAIGN_DATA,
   SET_ACTIVE_MEDIA,
   SET_ACTIVE_MEDIA_URL,
@@ -34,6 +35,10 @@ function reducer(state = initialState, { type, data }) {
       return {
         ...state
       };
+    case LOG_OUT:
+      const { routing } = state;
+      state = { routing }; 
+      return createRootReducer(state, {type,data});
     case SET_CAMPAIGN_DATA:
       return {
         ...state,

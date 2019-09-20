@@ -1,5 +1,5 @@
 import { call, put } from "redux-saga/effects";
-import { listCampaigns, setActive } from "../utils";
+import { listCampaigns, setActive, createNewCampaign } from "../utils";
 import {
   setCampaignData,
   setActiveMedia,
@@ -9,7 +9,18 @@ import {
 
 export function* campaignSaga({ type, data }) {
   try {
-    const campaignApiResponse = yield call(listCampaigns, data.adminId);
+    let campaignApiResponse = yield call(listCampaigns, data.adminId);
+    
+    if (!campaignApiResponse.campaigns.length) {
+      
+      const createCampaignApiResponse = yield call(createNewCampaign, data.adminId, "Campaign 1");
+      if (!createCampaignApiResponse.ok) {
+        throw new Error(createCampaignApiResponse);
+      } else {
+        campaignApiResponse = createCampaignApiResponse;
+      }
+
+    }
     yield put(setCampaignData(campaignApiResponse));
     const activeMediaId = campaignApiResponse.campaigns[0].activeMediaId;
     const activeMedia = campaignApiResponse.campaigns[0].media.find(
