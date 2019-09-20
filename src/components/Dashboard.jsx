@@ -54,12 +54,12 @@ class Dashboard extends Component {
               className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
               id="accordionSidebar"
             >
-              <a
+              <div
                 className="sidebar-brand d-flex align-items-center justify-content-center"
                 href="index.html"
               >
                 <div className="sidebar-brand-text mx-3">Solstice AR</div>
-              </a>
+              </div>
               <hr className="sidebar-divider my-0" />
               <li className="nav-item active">
                 <a className="nav-link" href="#accordionSidebar">
