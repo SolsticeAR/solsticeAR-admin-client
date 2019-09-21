@@ -12,7 +12,8 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip
+  Tooltip,
+  ResponsiveContainer
 } from "recharts";
 
 class ViewCountGraph extends Component {
@@ -30,6 +31,7 @@ class ViewCountGraph extends Component {
 
     return (
       <div className="card-body">
+        <ResponsiveContainer width="100%" height={300}>
         <AreaChart
           width={700}
           height={300}
@@ -47,6 +49,7 @@ class ViewCountGraph extends Component {
           <Tooltip />
           <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
         </AreaChart>
+        </ResponsiveContainer >
       </div>
     );
   }
