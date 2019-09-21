@@ -39,6 +39,7 @@ class Dashboard extends Component {
       return (
         <div className="Dashboard">
           <div id="wrapper">
+            <div>
             <ul
               className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
               id="accordionSidebar"
@@ -69,6 +70,7 @@ class Dashboard extends Component {
                 <TextUpload />
               </li>
             </ul>
+            </div>
 
             <div id="content-wrapper" className="d-flex flex-column">
               {/* PAGE CONTENT */}
