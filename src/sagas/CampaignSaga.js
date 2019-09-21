@@ -15,12 +15,13 @@ export function* campaignSaga({ type, data }) {
       
       const createCampaignApiResponse = yield call(createNewCampaign, data.adminId, "Campaign 1");
       if (!createCampaignApiResponse.ok) {
-        throw new Error(createCampaignApiResponse);
+        throw new Error(createCampaignApiResponse.error);
       } else {
         campaignApiResponse = createCampaignApiResponse;
       }
 
     }
+    debugger;
     console.log("Campaign API response:" ,campaignApiResponse);
     yield put(setCampaignData(campaignApiResponse));
     if (!campaignApiResponse.campaigns.media) return;
@@ -32,7 +33,7 @@ export function* campaignSaga({ type, data }) {
     yield put(setActiveMediaUrl(activeCreativeUrl));
     yield put(setActiveMediaObj(activeMedia));
   } catch (e) {
-    window.alert(e.message);
+    window.alert("Error in Campaign retrieval" + e.message);
     //TODO : Handle campaign data  fetch error gracefully - yield put((e));
   }
 }
