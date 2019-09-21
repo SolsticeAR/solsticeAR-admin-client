@@ -31,7 +31,7 @@ export function* campaignSaga({ type, data }) {
     yield put(setActiveMediaUrl(activeCreativeUrl));
     yield put(setActiveMediaObj(activeMedia));
   } catch (e) {
-    window.alert("Error in Campaign retrieval" + e.message);
+    window.alert(e.message);
     //TODO : Handle campaign data  fetch error gracefully - yield put((e));
   }
 }

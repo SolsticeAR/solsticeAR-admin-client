@@ -14,8 +14,8 @@ export function* addUserSaga({ type, data }) {
     if (newUser.ok) {
       yield put(loginAdmin(data.email, data.password));
       /* Users need empty campaigns */
-      yield call(fetchCampaignData, newUser.userId); 
-      
+      yield call(fetchCampaignData, newUser.userId);
+
     } else {
       throw Error(newUser.error);
     }
