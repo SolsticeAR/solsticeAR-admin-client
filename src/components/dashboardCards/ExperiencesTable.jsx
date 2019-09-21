@@ -80,7 +80,14 @@ class ExperiencesTable extends Component {
                         </td>
                       </tr>
                     ))
-                  ) : null}
+                  ) : (
+                    <tr>
+                      <td>Garrett Winters</td>
+                      <td>Video</td>
+                      <td>2013/07/01</td>
+                      <td>63</td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>

@@ -25,6 +25,18 @@ class Dashboard extends Component {
     }
     this.props.fetchCampaignData(this.props.admin);
   }
+  getMediaUrl() {
+    if (this.props.campaigns.length) {
+      return this.props.campaigns[0].media[
+        this.props.campaigns[0].activemediaId - 1
+      ].url;
+    }
+  }
+  getMedia() {
+    if (this.props.campaigns.length) {
+      return this.props.campaigns[0].media;
+    }
+  }
   handleLogout(e){
     e.preventDefault();
     logout();
