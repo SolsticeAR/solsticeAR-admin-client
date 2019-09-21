@@ -154,7 +154,6 @@ export function createNewCampaign(adminId, name) {
   }`,
     true
   ).then(response => {
-    debugger;
     if (!response.ok) return response;
     return {
       ok: true,

@@ -21,7 +21,6 @@ export function* campaignSaga({ type, data }) {
       }
 
     }
-    debugger;
     console.log("Campaign API response:" ,campaignApiResponse);
     yield put(setCampaignData(campaignApiResponse));
     if (!campaignApiResponse.campaigns.media) return;
