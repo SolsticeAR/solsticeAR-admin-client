@@ -25,6 +25,7 @@ class Dashboard extends Component {
     }
     this.props.fetchCampaignData(this.props.admin);
   }
+  
   handleLogout(e){
     e.preventDefault();
     logout();
