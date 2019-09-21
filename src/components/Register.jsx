@@ -98,6 +98,7 @@ class Register extends Component {
                     </div>
                     <div className="form-group row">
                       <div className="col-sm-6 mb-3 mb-sm-0">
+                        <div data-tip="Must include at least 8 characters">
                         <input
                           type="password"
                           className="form-control form-control-user"
@@ -107,14 +108,17 @@ class Register extends Component {
                             this.setState({ password: e.target.value })
                           }
                         />
+                        </div>
                       </div>
-                      <div className="col-sm-6">
+                      <div className="col-sm-6" >
                         <input
                           type="password"
                           className="form-control form-control-user"
                           id="exampleRepeatPassword"
                           placeholder="Repeat Password"
                         />
+
+                        
                       </div>
                     </div>
                     <a
