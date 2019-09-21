@@ -14,10 +14,10 @@ export function* addUserSaga({ type, data }) {
     if (newUser.ok) {
       yield put(loginAdmin(data.email, data.password));
       /* Users need empty campaigns */
-      const newEmptyCampaign = yield call(fetchCampaignData, newUser.userId); 
-      if(!newEmptyCampaign.ok) { throw Error("Error registering new campaign");}
+      yield call(fetchCampaignData, newUser.userId);
+
     } else {
-      throw Error(newUser);
+      throw Error(newUser.error);
     }
   } catch (e) {
     window.alert(e.message);

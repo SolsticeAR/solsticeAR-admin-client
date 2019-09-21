@@ -157,8 +157,7 @@ export function createNewCampaign(adminId, name) {
     if (!response.ok) return response;
     return {
       ok: true,
-      name: response.response.data.addCampaign.name,
-      id: response.response.data.addCampaign.id
+      campaigns:[response.data.addCampaign]
     };
   });
 }
