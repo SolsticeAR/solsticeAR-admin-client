@@ -21,7 +21,6 @@ export function* campaignSaga({ type, data }) {
       }
 
     }
-    console.log("Campaign API response:" ,campaignApiResponse);
     yield put(setCampaignData(campaignApiResponse));
     if (!campaignApiResponse.campaigns.media) return;
     const activeMediaId = campaignApiResponse.campaigns[0].activeMediaId;
