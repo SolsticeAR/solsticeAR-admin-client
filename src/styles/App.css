@@ -12071,35 +12071,6 @@ body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
 
-
-/* .tooltip .tooltiptext{
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  /* position: absolute;
-  z-index: 1;
-}
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-} */
-
 [data-tip] {
 	position:relative;
 }
@@ -12126,15 +12097,12 @@ body.sidebar-toggled footer.sticky-footer {
 	position:absolute;
 	top:35px;
 	left:0px;
-	/* padding:5px 8px; */
 	background:#ffc107;
 	color:#343a40;
 	z-index:9;
 	font-size: 0.75em;
 	height:18px;
 	line-height:18px;
-	/* -webkit-border-radius: 3px;
-	-moz-border-radius: 3px; */
 	border-radius: 3px;
 	white-space:nowrap;
 	word-wrap:normal;
