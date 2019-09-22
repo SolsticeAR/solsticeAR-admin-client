@@ -34,7 +34,6 @@ class ExperiencesTable extends Component {
               <table
                 className="table table-bordered"
                 id="dataTable"
-                width="100%"
                 cellSpacing="0"
               >
                 <thead>
