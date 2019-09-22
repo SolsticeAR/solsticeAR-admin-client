@@ -5115,6 +5115,11 @@ input[type="button"].btn-block {
   }
 }
 
+#accordionSidebar{
+  position:sticky;
+  top:0;
+}
+
 .accordion > .card {
   overflow: hidden;
 }
