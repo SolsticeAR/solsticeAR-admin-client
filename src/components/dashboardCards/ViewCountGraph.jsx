@@ -31,8 +31,7 @@ class ViewCountGraph extends Component {
 
     return (
       <div className="card-body">
-
-        <ResponsiveContainer aspect={4/3}>
+        <ResponsiveContainer aspect={2.5}>
         <AreaChart
           data={data}
           margin={{
