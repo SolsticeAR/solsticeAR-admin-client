@@ -12,6 +12,7 @@ import ActiveExperience from "./dashboardCards/ActiveExperience";
 import ExperiencesTable from "./dashboardCards/ExperiencesTable";
 import CloudinaryUpload from "./CloudinaryUpload";
 import TextUpload1 from "./TextUpload1";
+import Share from "./Share";
 
 //actions
 import { fetchCampaignData, logOut } from "../actions";
@@ -76,6 +77,9 @@ class Dashboard extends Component {
                   <i className="fas fa-fw fa-tachometer-alt"></i>
                   <span>Compose Message</span>
                 </a>
+              </li>
+              <li className="nav-item active" >
+                <Share/>
               </li>
             </ul>
             </div>
