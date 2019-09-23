@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 // TODO: put this in an environment config file
-const uri = "http://localhost:4000/api";
+const uri = "https://solsticear-serv.herokuapp.com/api";
 
 
 export function getAuthTokenFromLS() {

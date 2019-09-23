@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+<<<<<<< HEAD
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from 'mdbreact';
 import { createNewMedia } from "../actions/index";
 
 
+=======
+import { createNewMedia } from "../actions/index";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
+import "../styles/App.css"
+>>>>>>> 6cbf69aa86fe6a41af82a45ead79afbea794aec4
 
 class TextUpload1 extends Component {
   constructor(props) {
@@ -12,8 +18,16 @@ class TextUpload1 extends Component {
       upload: ""
     };
   }
+<<<<<<< HEAD
   handleClick(e) {
       console.log("this is upload",this.state.upload)
+=======
+  closeForm(){
+    document.getElementById('messageForm').style.display = "none"
+    document.getElementById('overlay').style.display = "none"
+  }
+  handleClick(e) {
+>>>>>>> 6cbf69aa86fe6a41af82a45ead79afbea794aec4
     e.preventDefault();
     const media = {
       name: this.state.upload,
@@ -21,6 +35,7 @@ class TextUpload1 extends Component {
       type: "text",
       campaignId: 1 // Set to default 1st campaign
     };
+<<<<<<< HEAD
     this.props.createNewMedia(media);
   }
   render() {
@@ -57,6 +72,23 @@ class TextUpload1 extends Component {
               className="form-control"
             />
             <br />
+=======
+    console.log("this is state upload", this.state.upload)
+    this.props.createNewMedia(media);
+    this.closeForm()
+  }
+
+  render() {
+    return (
+      <div id="overlay" >
+        
+      <MDBContainer id="messageForm">
+    
+      <MDBRow >
+        <MDBCol md="6" id="formColumn">
+          <form >
+            <p className="h4 text-center">Compose Message</p>
+>>>>>>> 6cbf69aa86fe6a41af82a45ead79afbea794aec4
             <label
               htmlFor="defaultFormContactSubjectEx"
               className="grey-text"
@@ -83,15 +115,27 @@ class TextUpload1 extends Component {
               onChange={e => this.setState({ upload: e.target.value })}
             />
             <div className="text-center mt-4">
+<<<<<<< HEAD
               <MDBBtn color="warning" outline type="submit" onClick={e => this.handleClick(e)}>
                 Send
                 <MDBIcon far icon="paper-plane" className="ml-2" />
+=======
+              <MDBBtn class="messageFormButton"  outline type="submit" onClick={e => this.handleClick(e)}>
+                Send
+              </MDBBtn>
+              <MDBBtn class="messageFormButton"  outline onClick={()=>this.closeForm()}>
+                Cancel
+>>>>>>> 6cbf69aa86fe6a41af82a45ead79afbea794aec4
               </MDBBtn>
             </div>
           </form>
         </MDBCol>
       </MDBRow>
     </MDBContainer>
+<<<<<<< HEAD
+=======
+    </div>
+>>>>>>> 6cbf69aa86fe6a41af82a45ead79afbea794aec4
     );
   }
 }
