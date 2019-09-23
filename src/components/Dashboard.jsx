@@ -105,13 +105,13 @@ class Dashboard extends Component {
                     </li>
                     <div className="topbar-divider d-none d-sm-block"></div>
                     <li className="nav-item dropdown no-arrow">
-                      <div
+                      <span
                         className="nav-link dropdown-toggle"
                         id="userDropdown"
                         onClick={(e)=>this.handleLogout(e)}
                       >
                         Logout
-                      </div>
+                      </span>
                     </li>
                   </ul>
                 </nav>
