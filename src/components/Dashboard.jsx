@@ -12,6 +12,7 @@ import ActiveExperience from "./dashboardCards/ActiveExperience";
 import ExperiencesTable from "./dashboardCards/ExperiencesTable";
 import CloudinaryUpload from "./CloudinaryUpload";
 import TextUpload from "./TextUpload";
+import TextUpload1 from "./TextUpload1";
 
 //actions
 import { fetchCampaignData, logOut } from "../actions";
@@ -113,6 +114,7 @@ class Dashboard extends Component {
                     </div>
                   </div>                  
                     <ExperiencesTable />
+                    <TextUpload1/>
                 </div>
               </div>
 
