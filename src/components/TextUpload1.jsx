@@ -23,7 +23,7 @@ class TextUpload1 extends Component {
       type: "text",
       campaignId: 1 // Set to default 1st campaign
     };
-    console.log("this is state upload", this.state.upload)
+    
     this.props.createNewMedia(media);
     this.closeForm()
   }

@@ -19,7 +19,8 @@ class ActiveExperience extends Component {
           </div>
           {this.props.activeMediaObj && (
           <div className="text-center ">
-            {this.props.activeMediaObj.type=== "image" && (
+            {(this.props.activeMediaObj.type=== "image" || 
+            this.props.activeMediaObj.type === "animatedImage") && (
             <img
               className="img-fluid px-3 px-sm-4 mt-3 mb-4"
               src={this.props.activeMediaUrl}
