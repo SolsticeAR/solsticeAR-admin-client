@@ -11,13 +11,8 @@ import ViewCountGraph from "./dashboardCards/ViewCountGraph";
 import ActiveExperience from "./dashboardCards/ActiveExperience";
 import ExperiencesTable from "./dashboardCards/ExperiencesTable";
 import CloudinaryUpload from "./CloudinaryUpload";
-<<<<<<< HEAD
-import TextUpload from "./TextUpload";
-import TextUpload1 from "./TextUpload1";
-=======
 import TextUpload1 from "./TextUpload1";
 import Share from "./Share";
->>>>>>> 6cbf69aa86fe6a41af82a45ead79afbea794aec4
 
 //actions
 import { fetchCampaignData, logOut } from "../actions";
@@ -134,11 +129,7 @@ class Dashboard extends Component {
                     </div>
                   </div>                  
                     <ExperiencesTable />
-<<<<<<< HEAD
-                    <TextUpload1/>
-=======
                     <TextUpload1 />
->>>>>>> 6cbf69aa86fe6a41af82a45ead79afbea794aec4
                 </div>
               </div>
 

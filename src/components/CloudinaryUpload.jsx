@@ -16,9 +16,13 @@ class CloudinaryUpload extends Component {
       },
       (error, result) => {
         if (result.event === "success") {
+          let type = result.info.resource_type
+          if (type==="image" && result.infor.format === "gif"){
+              type = "animatedImage";
+          }
           const media = {
             name: result.info.original_filename,
-            type: result.info.resource_type,
+            type,
             url: result.info.url,
             campaignId: this.props.campaigns[0].id
           };
