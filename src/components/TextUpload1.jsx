@@ -23,10 +23,7 @@ class TextUpload1 extends Component {
       type: "text",
       campaignId: 1 // Set to default 1st campaign
     };
-<<<<<<< HEAD
-=======
     
->>>>>>> 53e36f70b2f398ea6fdce67a6fe610fae4358afc
     this.props.createNewMedia(media);
     this.closeForm()
   }
