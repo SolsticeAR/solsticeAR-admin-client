@@ -12,7 +12,6 @@ class TextUpload1 extends Component {
     };
   }
   closeForm(){
-    console.log("the form is closing")
     document.getElementById('messageForm').style.display = "none"
     document.getElementById('overlay').style.display = "none"
   }
@@ -31,23 +30,6 @@ class TextUpload1 extends Component {
 
   render() {
     return (
-      // <a className="nav-link" href="#home">
-      //   <i className="fas fa-fw fa-tachometer-alt"></i>
-      //   <span>Upload Text</span>
-      //   <input
-      //     type="text"
-      //     className="form-control form-control-user"
-      //     id="textUpload"
-      //     placeholder="Type your text here "
-      //     onChange={e => this.setState({ upload: e.target.value })}
-      //   />
-      //   <button
-      //     className="btn btn-primary btn-user btn-block"
-      //     onClick={e => this.handleClick(e)}
-      //   >
-      //     Upload Text
-      //   </button>
-      // </a>
       <div id="overlay" >
         
       <MDBContainer id="messageForm">

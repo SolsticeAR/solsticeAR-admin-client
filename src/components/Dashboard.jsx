@@ -79,7 +79,11 @@ class Dashboard extends Component {
                 </a>
               </li>
               <li className="nav-item active" >
+                <div className="nav-link">
+                  <i className="fas fa-fw fa-tachometer-alt"></i>
+                  <span>Share SolsticeAR!</span>
                 <Share/>
+                </div>
               </li>
             </ul>
             </div>

@@ -28,7 +28,6 @@ html {
   top:50%;
   transform:translate(-50%, -50%);
   display:none;
-  /* background-color:#fff; */
 }
 
 #overlay {
@@ -40,8 +39,6 @@ html {
   display:none;
   background-color:rgba(14, 47, 90, 0.6);
   z-index: 6;
-
- /* // opacity:0.5; */
 }
 
 #formColumn{
@@ -63,4 +60,8 @@ html {
 .h4{
   color: #0E2F5A;
   margin-top:4%;
+}
+
+#fb-share-button{
+  margin:0 auto;
 }
