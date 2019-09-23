@@ -11,7 +11,8 @@ import ViewCountGraph from "./dashboardCards/ViewCountGraph";
 import ActiveExperience from "./dashboardCards/ActiveExperience";
 import ExperiencesTable from "./dashboardCards/ExperiencesTable";
 import CloudinaryUpload from "./CloudinaryUpload";
-import TextUpload from "./TextUpload";
+import TextUpload1 from "./TextUpload1";
+import Share from "./Share";
 
 //actions
 import { fetchCampaignData, logOut } from "../actions";
@@ -30,6 +31,11 @@ class Dashboard extends Component {
     e.preventDefault();
     logout();
     this.props.redirectToLogin();
+  }
+
+  openComposeForm(){
+    document.getElementById('overlay').style.display = "inline"
+    document.getElementById('messageForm').style.display = "inline"
   }
 
   render() {
@@ -66,8 +72,18 @@ class Dashboard extends Component {
               <li className="nav-item active">
                 <CloudinaryUpload />
               </li>
-              <li className="nav-item active">
-                <TextUpload />
+               <li className="nav-item active" >
+                <a className="nav-link" href="#top" onClick={()=>this.openComposeForm()} >
+                  <i className="fas fa-fw fa-tachometer-alt"></i>
+                  <span>Compose Message</span>
+                </a>
+              </li>
+              <li className="nav-item active" >
+                <div className="nav-link">
+                  <i className="fas fa-fw fa-tachometer-alt"></i>
+                  <span>Share SolsticeAR!</span>
+                <Share/>
+                </div>
               </li>
             </ul>
             </div>
@@ -113,6 +129,7 @@ class Dashboard extends Component {
                     </div>
                   </div>                  
                     <ExperiencesTable />
+                    <TextUpload1 />
                 </div>
               </div>
 

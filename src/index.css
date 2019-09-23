@@ -21,3 +21,48 @@ code {
 html {
   scroll-behavior: smooth;
  }
+
+#messageForm {
+   position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  display:none;
+}
+
+#overlay {
+  position:fixed;
+  left:0;
+  top:0;
+  width:100vw;
+  height:100vh;
+  display:none;
+  background-color:rgba(14, 47, 90, 0.6);
+  z-index: 6;
+}
+
+#formColumn{
+  margin:0 auto;
+  background-color: #E4EBF1;
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 20px 30px;
+  border-radius: 5px;
+  color: #90A0B3;
+}
+
+.messageFormButton{
+  background-color: #0078FF;
+  color: #FFFFFF;
+  border-radius: 5px;
+  margin: 1%;
+  margin-bottom: 4%;
+}
+
+.h4{
+  color: #0E2F5A;
+  margin-top:4%;
+}
+
+#fb-share-button{
+  margin:0 auto;
+}
+
