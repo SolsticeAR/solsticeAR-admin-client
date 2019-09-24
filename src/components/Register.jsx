@@ -6,7 +6,7 @@ import "../styles/App.css";
 
 import { connect } from "react-redux";
 import { createNewUser } from "../actions";
-
+import { getAuthTokenFromLS } from "../utils";
 import { push } from "connected-react-router";
 
 // images
@@ -21,6 +21,12 @@ class Register extends Component {
       password: "" //temporary text for form
     };
   }
+
+  componentDidMount() {
+    const authData = getAuthTokenFromLS();
+    if (authData) this.props.redirectToLogin();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     let name = `${this.state.firstName} ${this.state.lastName}`;
@@ -99,15 +105,15 @@ class Register extends Component {
                     <div className="form-group row">
                       <div className="col-sm-6 mb-3 mb-sm-0">
                         <div data-tip="Must include at least 8 characters">
-                        <input
-                          type="password"
-                          className="form-control form-control-user"
-                          id="exampleInputPassword"
-                          placeholder="Password"
-                          onChange={e =>
-                            this.setState({ password: e.target.value })
-                          }
-                        />
+                          <input
+                            type="password"
+                            className="form-control form-control-user"
+                            id="exampleInputPassword"
+                            placeholder="Password"
+                            onChange={e =>
+                              this.setState({ password: e.target.value })
+                            }
+                          />
                         </div>
                       </div>
                       <div className="col-sm-6" >
@@ -118,7 +124,7 @@ class Register extends Component {
                           placeholder="Repeat Password"
                         />
 
-                        
+
                       </div>
                     </div>
                     <a

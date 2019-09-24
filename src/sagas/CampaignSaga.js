@@ -10,10 +10,10 @@ import {
 export function* campaignSaga({ type, data }) {
   try {
     let campaignApiResponse = yield call(listCampaigns, data.adminId);
-    
+
     if (!campaignApiResponse.campaigns.length) {
       
-      const createCampaignApiResponse = yield call(createNewCampaign, data.adminId, "Campaign 1");
+      const createCampaignApiResponse = yield call(createNewCampaign, data.adminId);
       if (!createCampaignApiResponse.ok) {
         throw new Error(createCampaignApiResponse.error);
       } else {
@@ -22,7 +22,7 @@ export function* campaignSaga({ type, data }) {
 
     }
     yield put(setCampaignData(campaignApiResponse));
-    if (!campaignApiResponse.campaigns.media) return;
+    if (!campaignApiResponse.campaigns[0].media) return;
     const activeMediaId = campaignApiResponse.campaigns[0].activeMediaId;
     const activeMedia = campaignApiResponse.campaigns[0].media.find(
       media => media.id === activeMediaId

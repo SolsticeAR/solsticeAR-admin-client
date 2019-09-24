@@ -11,8 +11,6 @@ import ViewCountGraph from "./dashboardCards/ViewCountGraph";
 import ActiveExperience from "./dashboardCards/ActiveExperience";
 import ExperiencesTable from "./dashboardCards/ExperiencesTable";
 import CloudinaryUpload from "./CloudinaryUpload";
-import TextUpload1 from "./TextUpload1";
-import Share from "./Share";
 
 //actions
 import { fetchCampaignData, logOut } from "../actions";
@@ -26,66 +24,50 @@ class Dashboard extends Component {
     }
     this.props.fetchCampaignData(this.props.admin);
   }
-  
-  handleLogout(e){
+
+  handleLogout(e) {
     e.preventDefault();
     logout();
     this.props.redirectToLogin();
   }
 
-  openComposeForm(){
-    document.getElementById('overlay').style.display = "inline"
-    document.getElementById('messageForm').style.display = "inline"
-  }
+
 
   render() {
-    if ( !this.props.campaigns)
-      return <h1>Loading: Campaigns}</h1>;
+    if (!this.props.campaigns)
+      return <h1>One moment please...</h1>; //can replace
     else
       return (
         <div className="Dashboard">
           <div id="wrapper">
             <div>
-            <ul
-              className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-              id="accordionSidebar"
-            >
-              <div
-                className="sidebar-brand d-flex align-items-center justify-content-center"
-                href="index.html"
+              <ul
+                className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+                id="accordionSidebar"
               >
-                <div className="sidebar-brand-text mx-3">Solstice AR</div>
-              </div>
-              <hr className="sidebar-divider my-0" />
-              <li className="nav-item active">
-                <a className="nav-link" href="#accordionSidebar">
-                  <i className="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Dashboard Home</span>
-                </a>
-              </li>
-              <li className="nav-item active">
-                <a className="nav-link" href="#experiences-table">
-                  <i className="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Your AR Experiences</span>
-                </a>
-              </li>
-              <li className="nav-item active">
-                <CloudinaryUpload />
-              </li>
-               <li className="nav-item active" >
-                <a className="nav-link" href="#top" onClick={()=>this.openComposeForm()} >
-                  <i className="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Compose Message</span>
-                </a>
-              </li>
-              <li className="nav-item active" >
-                <div className="nav-link">
-                  <i className="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Share SolsticeAR!</span>
-                <Share/>
+                <div
+                  className="sidebar-brand d-flex align-items-center justify-content-center"
+                  href="index.html"
+                >
+                  <div className="sidebar-brand-text mx-3">Solstice AR</div>
                 </div>
-              </li>
-            </ul>
+                <hr className="sidebar-divider my-0" />
+                <li className="nav-item active">
+                  <a className="nav-link" href="#accordionSidebar">
+                    <i className="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard Home</span>
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="#experiences-table">
+                    <i className="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Your AR Experiences</span>
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <CloudinaryUpload />
+                </li>
+              </ul>
             </div>
 
             <div id="content-wrapper" className="d-flex flex-column">
@@ -100,7 +82,7 @@ class Dashboard extends Component {
                         href="#page-top"
                         id="userDropdown"
                       >
-                        {this.props.admin?this.props.admin.name:""}
+                        {this.props.admin ? this.props.admin.name : ""}
                       </a>
                     </li>
                     <div className="topbar-divider d-none d-sm-block"></div>
@@ -108,7 +90,7 @@ class Dashboard extends Component {
                       <span
                         className="nav-link dropdown-toggle"
                         id="userDropdown"
-                        onClick={(e)=>this.handleLogout(e)}
+                        onClick={(e) => this.handleLogout(e)}
                       >
                         Logout
                       </span>
@@ -127,9 +109,8 @@ class Dashboard extends Component {
                     <div className="col-xl-4 col-lg-5">
                       <ActiveExperience />
                     </div>
-                  </div>                  
-                    <ExperiencesTable />
-                    <TextUpload1 />
+                  </div>
+                  <ExperiencesTable />
                 </div>
               </div>
 
@@ -147,6 +128,7 @@ class Dashboard extends Component {
       );
   }
 }
+
 const mapStateToProps = state => {
   return {
     admin: state.reducer.adminData,

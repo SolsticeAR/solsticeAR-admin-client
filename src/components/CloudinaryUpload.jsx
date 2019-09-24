@@ -51,7 +51,7 @@ class CloudinaryUpload extends Component {
           onClick={() => this.openWidget(this.widget)}
         >
           <i className="fas fa-fw fa-tachometer-alt"></i>
-          <span>Upload New File</span>
+          <span>Upload Media to Gallery</span>
         </a>
       </div>
     );

@@ -26,10 +26,6 @@ class ActiveExperience extends Component {
               src={this.props.activeMediaUrl}
               alt=""
             /> )}
-             {this.props.activeMediaObj.type === "text" && (
-            <div
-              className="h2 px-3 px-sm-4 mt-3 mb-4"
-            > {this.props.activeMediaObj.name} </div>)}
              { this.props.activeMediaObj.type === "video" && (
             <div className="embed-responsive embed-responsive-4by3">
             <video

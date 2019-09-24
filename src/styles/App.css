@@ -12121,3 +12121,9 @@ body.sidebar-toggled footer.sticky-footer {
 [data-tip]:hover:after {
 	display:block;
 }
+
+#userDropdown {
+  color:rgba(108, 122, 137, 1);
+  cursor:pointer;
+}
+
