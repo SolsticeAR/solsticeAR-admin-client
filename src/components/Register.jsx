@@ -24,7 +24,7 @@ class Register extends Component {
 
   componentDidMount() {
     const authData = getAuthTokenFromLS();
-    this.props.redirectToLogin();
+    if (authData) this.props.redirectToLogin();
   }
 
   handleSubmit(e) {
