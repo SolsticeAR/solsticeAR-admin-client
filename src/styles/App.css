@@ -69,6 +69,7 @@ body {
   color: #858796;
   text-align: left;
   background-color: #fff;
+  background-image: url('./bg-pattern.png');
 }
 
 [tabindex="-1"]:focus {
@@ -604,7 +605,7 @@ pre code {
   padding-left: 0.75rem;
   margin-right: auto;
   margin-left: auto;
-  background: url("./bg-pattern.png");
+  background-image: url('./bg-pattern.png');
 }
 
 .row {
@@ -2626,15 +2627,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+  background-color: #d1d3e2;
+  color: white;
+  border-color: #d1d3e2;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #2e59d9;
-  border-color: #2653d4;
+  background-color: #fdcc52;
+  border-color: #fdcc52;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -11661,15 +11662,16 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://i.imgur.com/TNjwrgU.png");
+  background: url("./solstice-splash.png");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .bg-register-image {
-  background: url("https://i.imgur.com/TNjwrgU.png");
+  background: url("./solstice-splash.png");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 }
 
 .bg-password-image {
