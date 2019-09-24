@@ -11,7 +11,6 @@ import ViewCountGraph from "./dashboardCards/ViewCountGraph";
 import ActiveExperience from "./dashboardCards/ActiveExperience";
 import ExperiencesTable from "./dashboardCards/ExperiencesTable";
 import CloudinaryUpload from "./CloudinaryUpload";
-import TextUpload1 from "./TextUpload1";
 
 //actions
 import { fetchCampaignData, logOut } from "../actions";
@@ -32,10 +31,7 @@ class Dashboard extends Component {
     this.props.redirectToLogin();
   }
 
-  openComposeForm(){
-    document.getElementById('overlay').style.display = "inline"
-    document.getElementById('messageForm').style.display = "inline"
-  }
+
 
   render() {
     if ( !this.props.campaigns)
@@ -121,7 +117,6 @@ class Dashboard extends Component {
                     </div>
                   </div>                  
                     <ExperiencesTable />
-                    <TextUpload1 />
                 </div>
               </div>
 
