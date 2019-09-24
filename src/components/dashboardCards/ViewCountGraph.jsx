@@ -25,7 +25,7 @@ class ViewCountGraph extends Component {
     const data = this.props.activeMedia.views.map(view => {
       return {
         name: new Date(view.date).toDateString(),
-        uv: view.views
+        Views: view.views
       };
     });
 
@@ -45,7 +45,7 @@ class ViewCountGraph extends Component {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+          <Area type="monotone" dataKey="Views" stroke="#8884d8" fill="#8884d8" />
         </AreaChart>
         </ResponsiveContainer >
       </div>
