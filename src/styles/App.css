@@ -2713,8 +2713,6 @@ fieldset:disabled a.btn {
 .btn-success:focus, .btn-success.focus {
   background-color: #dc2430;
   border-color: #dc2430;
-  /* -webkit-box-shadow: 0 0 0 0.2rem rgba(247, 64, 9, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(168, 9, 30, 0.5); */
 }
 
 .btn-success.disabled, .btn-success:disabled {
