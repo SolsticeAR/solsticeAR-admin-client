@@ -17,8 +17,8 @@ class ActiveExperience extends Component {
               Active AR Experience
             </h6>
           </div>
-          {this.props.activeMediaObj && (
-          <div className="text-center ">
+          {this.props.activeMediaObj ? (
+            <div className="text-center ">
             {(this.props.activeMediaObj.type=== "image" || 
             this.props.activeMediaObj.type === "animatedImage") && (
             <img
@@ -35,7 +35,7 @@ class ActiveExperience extends Component {
             /></div> )}
             
           </div>
-          )}
+          ):<div className="text-center px-3 px-sm-4 mt-3 mb-4"> </div>}
         </div>
       </div>
     );
