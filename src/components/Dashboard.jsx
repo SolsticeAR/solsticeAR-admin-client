@@ -11,7 +11,6 @@ import ViewCountGraph from "./dashboardCards/ViewCountGraph";
 import ActiveExperience from "./dashboardCards/ActiveExperience";
 import ExperiencesTable from "./dashboardCards/ExperiencesTable";
 import CloudinaryUpload from "./CloudinaryUpload";
-import Share from "./Share";
 
 //actions
 import { fetchCampaignData, logOut } from "../actions";
@@ -36,7 +35,7 @@ class Dashboard extends Component {
 
   render() {
     if ( !this.props.campaigns)
-      return <h1>Loading: Campaigns}</h1>;
+      return <h1>One moment please...</h1>; //can replace
     else
       return (
         <div className="Dashboard">
@@ -68,12 +67,11 @@ class Dashboard extends Component {
               <li className="nav-item active">
                 <CloudinaryUpload />
               </li>
-              <li className="nav-item active" >
-                <div className="nav-link">
+               <li className="nav-item active" >
+                <a className="nav-link" href="#top" onClick={()=>this.openComposeForm()} >
                   <i className="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Share SolsticeAR!</span>
-                <Share/>
-                </div>
+                  <span>Compose Message</span>
+                </a>
               </li>
             </ul>
             </div>
@@ -136,6 +134,7 @@ class Dashboard extends Component {
       );
   }
 }
+
 const mapStateToProps = state => {
   return {
     admin: state.reducer.adminData,
