@@ -53,7 +53,7 @@ class Dashboard extends Component {
                 </div>
                 <hr className="sidebar-divider my-0" />
                 <li className="nav-item active">
-                  <a className="nav-link" href="#accordionSidebar">
+                  <a className="nav-link" href="#top">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard Home</span>
                   </a>
