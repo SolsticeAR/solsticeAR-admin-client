@@ -13,7 +13,7 @@ export function* campaignSaga({ type, data }) {
     
     if (!campaignApiResponse.campaigns.length) {
       
-      const createCampaignApiResponse = yield call(createNewCampaign, data.adminId, "Campaign 1");
+      const createCampaignApiResponse = yield call(createNewCampaign, data.adminId);
       if (!createCampaignApiResponse.ok) {
         throw new Error(createCampaignApiResponse.error);
       } else {
