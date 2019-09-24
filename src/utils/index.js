@@ -134,7 +134,7 @@ export function listCampaigns(adminId) {
   });
 }
 
-export function createNewCampaign(adminId, name) {
+export function createNewCampaign(adminId, name = null) {
   // CREATES A NEW CAMPAIGN
   return sendGqlRequest(
     `mutation { 
