@@ -12117,11 +12117,8 @@ body.sidebar-toggled footer.sticky-footer {
 	display:block;
 }
 
-#userDropdown{
+#userDropdown {
   color:rgba(108, 122, 137, 1);
-}
-
-.nav-link{
   cursor:pointer;
 }
 
