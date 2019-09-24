@@ -604,6 +604,7 @@ pre code {
   padding-left: 0.75rem;
   margin-right: auto;
   margin-left: auto;
+  background: url("./bg-pattern.png");
 }
 
 .row {
@@ -2698,19 +2699,19 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #dc2430;
-  border-color: #dc2430;
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #28a745;
-  border-color: #28a745;
+  background-color: #dc2430;
+  border-color: #dc2430;
 }
 
 .btn-success:focus, .btn-success.focus {
-  background-color: #28a745;
-  border-color: #28a745;
+  background-color: #dc2430;
+  border-color: #dc2430;
   /* -webkit-box-shadow: 0 0 0 0.2rem rgba(247, 64, 9, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(168, 9, 30, 0.5); */
 }
@@ -10706,8 +10707,8 @@ a:focus {
 .bg-gradient-primary {
   background-color: #4e73df;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #4e73df), to(#224abe));
-  background-image: linear-gradient(180deg, #7b4397 10%, #AC3464 100%);
-  background-size: cover;
+  background-image: linear-gradient(180deg, #7b4397 10%, 85%, #AC3464 99%, #dc2430 100%);
+  background-size: cover;  
 }
 
 .bg-gradient-secondary {
