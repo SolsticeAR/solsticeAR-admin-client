@@ -12,7 +12,7 @@ export function* campaignSaga({ type, data }) {
     let campaignApiResponse = yield call(listCampaigns, data.adminId);
 
     if (!campaignApiResponse.campaigns.length) {
-      
+
       const createCampaignApiResponse = yield call(createNewCampaign, data.adminId);
       if (!createCampaignApiResponse.ok) {
         throw new Error(createCampaignApiResponse.error);
@@ -22,7 +22,7 @@ export function* campaignSaga({ type, data }) {
 
     }
     yield put(setCampaignData(campaignApiResponse));
-    if (!campaignApiResponse.campaigns[0].media) return;
+    if (!campaignApiResponse.campaigns[0].media.length) return;
     const activeMediaId = campaignApiResponse.campaigns[0].activeMediaId;
     const activeMedia = campaignApiResponse.campaigns[0].media.find(
       media => media.id === activeMediaId
