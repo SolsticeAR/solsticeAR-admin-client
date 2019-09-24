@@ -11658,13 +11658,13 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://i.imgur.com/TNjwrgU.png");
+  background: url("../images/solsticeAR.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("https://i.imgur.com/TNjwrgU.png");
+  background: url("../images/solsticeAR.jpg");
   background-position: center;
   background-size: cover;
 }
