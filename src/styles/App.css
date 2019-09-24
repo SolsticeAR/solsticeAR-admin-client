@@ -2697,9 +2697,9 @@ fieldset:disabled a.btn {
 }
 
 .btn-success {
-  color: #fff;
-  background-color: #1cc88a;
-  border-color: #1cc88a;
+  color:darkgray/*#fff*/;
+  background-color: gray;/* #1cc88a;*/
+  border-color:gray; /*#1cc88a;*/
 }
 
 .btn-success:hover {
@@ -11658,13 +11658,13 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("https://i.imgur.com/TNjwrgU.png");
+  background: url("../images/solsticeAR.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .bg-register-image {
-  background: url("https://i.imgur.com/TNjwrgU.png");
+  background: url("../images/solsticeAR.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -12117,8 +12117,16 @@ body.sidebar-toggled footer.sticky-footer {
 	display:block;
 }
 
+<<<<<<< HEAD
 #userDropdown {
   color:rgba(108, 122, 137, 1);
+=======
+#userDropdown{
+  color:rgba(108, 122, 137, 1);
+}
+
+.nav-link{
+>>>>>>> 88ca15e24ffa5ee927b28496901a70fdc6adc822
   cursor:pointer;
 }
 
