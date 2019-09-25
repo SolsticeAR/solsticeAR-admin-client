@@ -103,7 +103,7 @@ class ExperiencesTable extends Component {
 const mapStateToProps = state => {
   return {
     campaigns: state.reducer.campaigns,
-    activeMediaId:state.reducer.activeMediaId,
+    activeMediaId: state.reducer.activeMediaId,
   };
 };
 
