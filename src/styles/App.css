@@ -169,18 +169,18 @@ a {
 }
 
 a:hover {
-  color: #224abe;
+  color: #f6c243;
   text-decoration: underline;
 }
 
 .link-hover {
-  color: #4e73df;
+  color: #f6c243;
   text-decoration: none;
   background-color: transparent;
 }
 .link-hover:hover {
   cursor: pointer;
-  color: #224abe;
+  color: #d4a021;
   text-decoration: underline;
 }
 
@@ -2627,9 +2627,9 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  background-color: #d1d3e2;
-  color: white;
-  border-color: #d1d3e2;
+  background-color: #f6c243;
+  color: #fff;
+  border-color: #f6c243;
 }
 
 .btn-primary:hover {

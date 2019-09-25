@@ -96,7 +96,7 @@ class Login extends Component {
                       <hr />
                       <div className="text-center">
                         <span className="small link-hover" onClick={() => this.props.redirectToRegister()}>
-                          Create an Account!
+                          New user? Create an account here!
                         </span>
                       </div>
                     </div>
