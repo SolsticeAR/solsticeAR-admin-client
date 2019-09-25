@@ -69,13 +69,23 @@ class ExperiencesTable extends Component {
                         </td>
                         <td>
                           {" "}
+                          {this.props.activeMediaId === media.id ? (
                           <Button
                             variant="success"
-                            id ={this.props.activeMediaId === media.id ? `b${media.id}` : 'green-selected'}
                             onClick={() => this.handleClick(index)}
+                            id="orange-selected"
                           >
                             Active
                           </Button>
+                          ):(
+                            <Button
+                            variant="success"
+                            onClick={() => this.handleClick(index)}
+                          >
+                            Inactive
+                          </Button>
+                          )}
+                          
                         </td>
                       </tr>
                     ))
@@ -92,7 +102,8 @@ class ExperiencesTable extends Component {
 
 const mapStateToProps = state => {
   return {
-    campaigns: state.reducer.campaigns
+    campaigns: state.reducer.campaigns,
+    activeMediaId: state.reducer.activeMediaId,
   };
 };
 

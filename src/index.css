@@ -12,9 +12,9 @@ code {
     monospace;
 }
 
-#green-selected {
- 
-  border: 1px solid transparent;
+#orange-selected {
+  background-color:orange;
+  border: 1px solid orange;
   padding: 0.375rem 0.75rem;
   border-radius: 0.35rem;
 }
