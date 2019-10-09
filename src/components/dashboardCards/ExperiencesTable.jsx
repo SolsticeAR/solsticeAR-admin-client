@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
 import {
   trySetActiveMedia,
-  setActiveMediaUrl,
   setActiveMediaObj
 } from "../../actions";
 
@@ -16,7 +15,6 @@ class ExperiencesTable extends Component {
   handleClick(index) {
     const newActiveMedia = this.props.campaigns[0].media[index];
     this.props.setActiveMedia(this.props.campaigns[0].id, newActiveMedia.id);
-    this.props.setActiveMediaUrl(newActiveMedia.url);
     this.props.setActiveMediaObj(newActiveMedia);
   }
 
@@ -46,7 +44,7 @@ class ExperiencesTable extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.props.campaigns.length !== 0 && this.props.campaigns[0].media.length !== 0? (
+                  {this.props.campaigns.length !== 0 && this.props.campaigns[0].media.length !== 0 ? (
                     this.props.campaigns[0].media.map((media, index) => (
                       <tr key={index}>
                         <td>{media.name}</td>
@@ -54,38 +52,38 @@ class ExperiencesTable extends Component {
                         <td>
                           {media.views && media.views.length !== 0
                             ? new Date(
-                                Number(media.views[0].date)
-                              ).toLocaleString()
+                              Number(media.views[0].date)
+                            ).toLocaleString()
                             : "--"}
                         </td>
                         <td>
                           {media.views && media.views.length !== 0
                             ? media.views.reduce(
-                                (accumulator, currentValue) => ({
-                                  views: accumulator.views + currentValue.views
-                                })
-                              ).views
+                              (accumulator, currentValue) => ({
+                                views: accumulator.views + currentValue.views
+                              })
+                            ).views
                             : "0"}
                         </td>
                         <td>
                           {" "}
-                          {this.props.activeMediaId === media.id ? (
-                          <Button
-                            variant="success"
-                            onClick={() => this.handleClick(index)}
-                            id="orange-selected"
-                          >
-                            Active
-                          </Button>
-                          ):(
+                          {this.props.activeMedia && this.props.activeMedia.id === media.id ? (
                             <Button
-                            variant="success"
-                            onClick={() => this.handleClick(index)}
-                          >
-                            Inactive
+                              variant="success"
+                              onClick={() => this.handleClick(index)}
+                              id="orange-selected"
+                            >
+                              Active
                           </Button>
-                          )}
-                          
+                          ) : (
+                              <Button
+                                variant="success"
+                                onClick={() => this.handleClick(index)}
+                              >
+                                Inactive
+                          </Button>
+                            )}
+
                         </td>
                       </tr>
                     ))
@@ -103,7 +101,7 @@ class ExperiencesTable extends Component {
 const mapStateToProps = state => {
   return {
     campaigns: state.reducer.campaigns,
-    activeMediaId: state.reducer.activeMediaId,
+    activeMedia: state.reducer.activeMediaObj,
   };
 };
 
@@ -112,11 +110,7 @@ const mapDispatchToProps = dispatch => {
     setActiveMedia: (campaignId, activeMediaId) => {
       dispatch(trySetActiveMedia(campaignId, activeMediaId));
     },
-    setActiveMediaUrl: url => {
-      dispatch(setActiveMediaUrl(url));
-    },
     setActiveMediaObj: media => {
-      console.log("IN EXPERIENCES TABLE:", media);
       dispatch(setActiveMediaObj(media));
     }
   };

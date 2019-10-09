@@ -17,25 +17,25 @@ class ActiveExperience extends Component {
               Active AR Experience
             </h6>
           </div>
-          {this.props.activeMediaObj ? (
+          {this.props.activeMedia ? (
             <div className="text-center ">
-            {(this.props.activeMediaObj.type=== "image" || 
-            this.props.activeMediaObj.type === "animatedImage") && (
-            <img
-              className="img-fluid px-3 px-sm-4 mt-3 mb-4"
-              src={this.props.activeMediaUrl}
-              alt=""
-            /> )}
-             { this.props.activeMediaObj.type === "video" && (
-            <div className="embed-responsive embed-responsive-4by3">
-            <video
-              className="embed-responsive-item px-3 px-sm-4 mt-3 mb-4"
-              src={this.props.activeMediaUrl}
-              alt={this.props.activeMediaObj.name}
-            /></div> )}
-            
-          </div>
-          ):<div className="text-center px-3 px-sm-4 mt-3 mb-4"> </div>}
+              {(this.props.activeMedia.type === "image" ||
+                this.props.activeMedia.type === "animatedImage") && (
+                  <img
+                    className="img-fluid px-3 px-sm-4 mt-3 mb-4"
+                    src={this.props.activeMedia.url}
+                    alt=""
+                  />)}
+              {this.props.activeMedia.type === "video" && (
+                <div className="embed-responsive embed-responsive-4by3">
+                  <video
+                    className="embed-responsive-item px-3 px-sm-4 mt-3 mb-4"
+                    src={this.props.activeMedia.url}
+                    alt={this.props.activeMedia.name}
+                  /></div>)}
+
+            </div>
+          ) : <div className="text-center px-3 px-sm-4 mt-3 mb-4"> </div>}
         </div>
       </div>
     );
@@ -45,8 +45,7 @@ class ActiveExperience extends Component {
 const mapStateToProps = state => {
   return {
     campaigns: state.reducer.campaigns,
-    activeMediaUrl: state.reducer.activeMediaUrl,
-    activeMediaObj :state.reducer.activeMediaObj
+    activeMedia: state.reducer.activeMediaObj
   };
 };
 
