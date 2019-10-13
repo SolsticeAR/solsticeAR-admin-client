@@ -7,7 +7,6 @@ import {
   LOG_OUT,
   SET_CAMPAIGN_DATA,
   SET_ACTIVE_MEDIA,
-  SET_ACTIVE_MEDIA_URL,
   SET_ACTIVE_MEDIA_OBJ,
   SET_NEW_MEDIA
 } from "../actions/constants";
@@ -15,7 +14,6 @@ import {
 const initialState = {
   adminData: null,
   activeMediaId: null,
-  activeMediaUrl: "",
   activeMediaObj: null,
   campaigns: []
 };
@@ -37,8 +35,8 @@ function reducer(state = initialState, { type, data }) {
       };
     case LOG_OUT:
       const { routing } = state;
-      state = { routing }; 
-      return createRootReducer(state, {type,data});
+      state = { routing };
+      return createRootReducer(state, { type, data });
     case SET_CAMPAIGN_DATA:
       return {
         ...state,
@@ -46,16 +44,9 @@ function reducer(state = initialState, { type, data }) {
         campaigns: [...data.campaigns]
       };
     case SET_ACTIVE_MEDIA:
-      {  
-        return {
-        ...state,
-        activeMediaId: data.activeMediaId
-      };
-    }
-    case SET_ACTIVE_MEDIA_URL:
       return {
         ...state,
-        activeMediaUrl: data.activeMediaUrl
+        activeMediaId: data.activeMediaId
       };
     case SET_ACTIVE_MEDIA_OBJ:
       return {
@@ -68,7 +59,7 @@ function reducer(state = initialState, { type, data }) {
         newCampaigns[0].media = newCampaigns[0].media.concat(data.media);
         return {
           ...state,
-          campaigns:newCampaigns
+          campaigns: newCampaigns
         }
       }
     default:

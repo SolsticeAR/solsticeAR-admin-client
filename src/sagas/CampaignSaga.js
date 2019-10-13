@@ -3,7 +3,6 @@ import { listCampaigns, setActive, createNewCampaign } from "../utils";
 import {
   setCampaignData,
   setActiveMedia,
-  setActiveMediaUrl,
   setActiveMediaObj
 } from "../actions/index";
 
@@ -27,8 +26,6 @@ export function* campaignSaga({ type, data }) {
     const activeMedia = campaignApiResponse.campaigns[0].media.find(
       media => media.id === activeMediaId
     );
-    const activeCreativeUrl = activeMedia.url;
-    yield put(setActiveMediaUrl(activeCreativeUrl));
     yield put(setActiveMediaObj(activeMedia));
   } catch (e) {
     window.alert(e.message);

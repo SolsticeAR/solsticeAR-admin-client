@@ -22,7 +22,7 @@ export function storeTokenInLS(loginData) {
   }
 }
 
-const sendGqlRequest = function(query, includeAuthToken) {
+const sendGqlRequest = function (query, includeAuthToken) {
   // PASS IN QUERY AND WHETHER OR NOT IT NEEDS AUTH TOKEN
   const headers = {
     "Content-Type": "application/json"
@@ -157,7 +157,7 @@ export function createNewCampaign(adminId, name = null) {
     if (!response.ok) return response;
     return {
       ok: true,
-      campaigns:[response.data.addCampaign]
+      campaigns: [response.data.addCampaign]
     };
   });
 }
@@ -217,8 +217,8 @@ export function login(email, password) {
 
 export function logout() {
   // REVOKES AUTH TOKEN
-    if (window.localStorage.getItem("authData")) {
-      window.localStorage.removeItem("authData");
-    }
-  };
+  if (window.localStorage.getItem("authData")) {
+    window.localStorage.removeItem("authData");
+  }
+};
 
